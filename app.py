@@ -23,8 +23,18 @@ from footnote.formatting import format_value
 
 DEMO_DIR = Path(__file__).resolve().parent / "demo"
 LIVE_RUN_CAP = 3
+# Fallback SEC contact for the hosted demo. Override with a SEC_CONTACT_EMAIL secret.
+DEFAULT_SEC_CONTACT = "footnote-app@example.com"
 
 st.set_page_config(page_title="Footnote", layout="wide")
+
+
+def secret(key: str):
+    """Read a Streamlit secret without raising when no secrets file is configured."""
+    try:
+        return st.secrets.get(key, None)
+    except Exception:  # noqa: BLE001 - no secrets.toml present on the runner
+        return None
 
 
 # --- data loading ----------------------------------------------------------
@@ -90,18 +100,17 @@ else:
     ticker = st.sidebar.text_input("Ticker", value="AAPL").strip().upper()
     years = st.sidebar.slider("Years", 2, 6, 5)
     engine_options = ["template"]
-    if os.environ.get("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY", None):
+    if os.environ.get("ANTHROPIC_API_KEY") or secret("ANTHROPIC_API_KEY"):
         engine_options.append("anthropic")
     engine = st.sidebar.selectbox("Engine", engine_options)
     runs = st.session_state.get("live_runs", 0)
     st.sidebar.caption(f"Live runs this session: {runs}/{LIVE_RUN_CAP}")
     if st.sidebar.button("Run analysis", disabled=runs >= LIVE_RUN_CAP):
+        # SEC requires a contact email; prefer env, then a secret, then a demo default.
         if not os.environ.get("SEC_CONTACT_EMAIL"):
-            secret_email = st.secrets.get("SEC_CONTACT_EMAIL", None)
-            if secret_email:
-                os.environ["SEC_CONTACT_EMAIL"] = secret_email
-        if st.secrets.get("ANTHROPIC_API_KEY", None) and not os.environ.get("ANTHROPIC_API_KEY"):
-            os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
+            os.environ["SEC_CONTACT_EMAIL"] = secret("SEC_CONTACT_EMAIL") or DEFAULT_SEC_CONTACT
+        if secret("ANTHROPIC_API_KEY") and not os.environ.get("ANTHROPIC_API_KEY"):
+            os.environ["ANTHROPIC_API_KEY"] = secret("ANTHROPIC_API_KEY")
         try:
             from footnote.agent import NoDataError, run_analysis
 
