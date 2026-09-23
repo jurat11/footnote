@@ -1,0 +1,27 @@
+{
+  "AAPL": {
+    "cik": 320193,
+    "name": "Apple Inc.",
+    "file": "AAPL_companyfacts.json"
+  },
+  "MSFT": {
+    "cik": 789019,
+    "name": "MICROSOFT CORP",
+    "file": "MSFT_companyfacts.json"
+  },
+  "JPM": {
+    "cik": 19617,
+    "name": "JPMORGAN CHASE & CO",
+    "file": "JPM_companyfacts.json"
+  },
+  "KO": {
+    "cik": 21344,
+    "name": "COCA COLA CO",
+    "file": "KO_companyfacts.json"
+  },
+  "NKE": {
+    "cik": 320187,
+    "name": "NIKE, Inc.",
+    "file": "NKE_companyfacts.json"
+  }
+}

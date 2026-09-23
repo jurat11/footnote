@@ -104,7 +104,7 @@ class EdgarClient:
     def _fetch_with_retry(self, url: str) -> Any:
         backoff = 1.0
         last_exc: Exception | None = None
-        for attempt in range(config.MAX_RETRIES):
+        for _attempt in range(config.MAX_RETRIES):
             self._limiter.wait()
             try:
                 resp = self._client.get(url)
