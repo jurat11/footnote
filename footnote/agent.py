@@ -126,6 +126,12 @@ def _write_bundle(
     (dest / "verification.json").write_text(
         json.dumps(verification.to_dict(), indent=2), encoding="utf-8"
     )
+    # Footnote -> ledger id map, so the app can link a footnote to its ledger row.
+    footnotes = [
+        {"number": fn.number, "token_id": fn.token_id, "kind": fn.kind, "value": fn.value_text}
+        for fn in rendered.footnotes
+    ]
+    (dest / "footnotes.json").write_text(json.dumps(footnotes, indent=2), encoding="utf-8")
     return dest
 
 

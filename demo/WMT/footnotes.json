@@ -1,0 +1,104 @@
+[
+  {
+    "number": 1,
+    "token_id": "revenue:FY2026",
+    "kind": "F",
+    "value": "$706.4B"
+  },
+  {
+    "number": 2,
+    "token_id": "net_income:FY2026",
+    "kind": "F",
+    "value": "$21.9B"
+  },
+  {
+    "number": 3,
+    "token_id": "net_margin:FY2026",
+    "kind": "R",
+    "value": "3.1%"
+  },
+  {
+    "number": 4,
+    "token_id": "revenue_growth:FY2026",
+    "kind": "R",
+    "value": "4.7%"
+  },
+  {
+    "number": 5,
+    "token_id": "gross_margin:FY2026",
+    "kind": "R",
+    "value": "24.2%"
+  },
+  {
+    "number": 6,
+    "token_id": "operating_margin:FY2026",
+    "kind": "R",
+    "value": "4.2%"
+  },
+  {
+    "number": 7,
+    "token_id": "roe:FY2026",
+    "kind": "R",
+    "value": "22.0%"
+  },
+  {
+    "number": 8,
+    "token_id": "roa:FY2026",
+    "kind": "R",
+    "value": "7.7%"
+  },
+  {
+    "number": 9,
+    "token_id": "revenue:FY2022",
+    "kind": "F",
+    "value": "$567.8B"
+  },
+  {
+    "number": 10,
+    "token_id": "current_ratio:FY2026",
+    "kind": "R",
+    "value": "0.79x"
+  },
+  {
+    "number": 11,
+    "token_id": "debt_to_equity:FY2026",
+    "kind": "R",
+    "value": "0.38x"
+  },
+  {
+    "number": 12,
+    "token_id": "total_assets:FY2026",
+    "kind": "F",
+    "value": "$284.7B"
+  },
+  {
+    "number": 13,
+    "token_id": "stockholders_equity:FY2026",
+    "kind": "F",
+    "value": "$99.6B"
+  },
+  {
+    "number": 14,
+    "token_id": "operating_cash_flow:FY2026",
+    "kind": "F",
+    "value": "$41.6B"
+  },
+  {
+    "number": 15,
+    "token_id": "capex:FY2026",
+    "kind": "F",
+    "value": "$26.6B"
+  },
+  {
+    "number": 16,
+    "token_id": "free_cash_flow:FY2026",
+    "kind": "R",
+    "value": "$14.9B"
+  },
+  {
+    "number": 17,
+    "token_id": "fcf_margin:FY2026",
+    "kind": "R",
+    "value": "2.1%"
+  }
+]

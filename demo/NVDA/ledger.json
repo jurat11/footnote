@@ -1,0 +1,2283 @@
+{
+  "company": {
+    "ticker": "NVDA",
+    "cik": 1045810,
+    "name": "NVIDIA CORP",
+    "sic": "3674",
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "years": [
+    2026,
+    2025,
+    2024,
+    2023,
+    2022
+  ],
+  "facts": {
+    "revenue:FY2026": {
+      "id": "revenue:FY2026",
+      "concept": "revenue",
+      "xbrl_tag": "Revenues",
+      "label": "Revenue",
+      "value": 215938000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "cost_of_revenue:FY2026": {
+      "id": "cost_of_revenue:FY2026",
+      "concept": "cost_of_revenue",
+      "xbrl_tag": "CostOfRevenue",
+      "label": "Cost of revenue",
+      "value": 62475000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "operating_income:FY2026": {
+      "id": "operating_income:FY2026",
+      "concept": "operating_income",
+      "xbrl_tag": "OperatingIncomeLoss",
+      "label": "Operating income",
+      "value": 130387000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "net_income:FY2026": {
+      "id": "net_income:FY2026",
+      "concept": "net_income",
+      "xbrl_tag": "NetIncomeLoss",
+      "label": "Net income",
+      "value": 120067000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "interest_expense:FY2026": {
+      "id": "interest_expense:FY2026",
+      "concept": "interest_expense",
+      "xbrl_tag": "InterestExpenseNonoperating",
+      "label": "Interest expense",
+      "value": 259000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "operating_cash_flow:FY2026": {
+      "id": "operating_cash_flow:FY2026",
+      "concept": "operating_cash_flow",
+      "xbrl_tag": "NetCashProvidedByUsedInOperatingActivities",
+      "label": "Cash from operations",
+      "value": 102718000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "capex:FY2026": {
+      "id": "capex:FY2026",
+      "concept": "capex",
+      "xbrl_tag": "PaymentsToAcquireProductiveAssets",
+      "label": "Capital expenditures",
+      "value": 6042000000.0,
+      "unit": "USD",
+      "period_start": "2025-01-27",
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "total_assets:FY2026": {
+      "id": "total_assets:FY2026",
+      "concept": "total_assets",
+      "xbrl_tag": "Assets",
+      "label": "Total assets",
+      "value": 206803000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "total_liabilities:FY2026": {
+      "id": "total_liabilities:FY2026",
+      "concept": "total_liabilities",
+      "xbrl_tag": "Liabilities",
+      "label": "Total liabilities",
+      "value": 49510000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "stockholders_equity:FY2026": {
+      "id": "stockholders_equity:FY2026",
+      "concept": "stockholders_equity",
+      "xbrl_tag": "StockholdersEquity",
+      "label": "Stockholders' equity",
+      "value": 157293000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "current_assets:FY2026": {
+      "id": "current_assets:FY2026",
+      "concept": "current_assets",
+      "xbrl_tag": "AssetsCurrent",
+      "label": "Current assets",
+      "value": 125605000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "current_liabilities:FY2026": {
+      "id": "current_liabilities:FY2026",
+      "concept": "current_liabilities",
+      "xbrl_tag": "LiabilitiesCurrent",
+      "label": "Current liabilities",
+      "value": 32163000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "long_term_debt:FY2026": {
+      "id": "long_term_debt:FY2026",
+      "concept": "long_term_debt",
+      "xbrl_tag": "LongTermDebtNoncurrent",
+      "label": "Long-term debt",
+      "value": 7469000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "current_debt:FY2026": {
+      "id": "current_debt:FY2026",
+      "concept": "current_debt",
+      "xbrl_tag": "LongTermDebtCurrent",
+      "label": "Current debt",
+      "value": 999000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2026-01-25",
+      "fiscal_year": 2026,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "revenue:FY2025": {
+      "id": "revenue:FY2025",
+      "concept": "revenue",
+      "xbrl_tag": "Revenues",
+      "label": "Revenue",
+      "value": 130497000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "cost_of_revenue:FY2025": {
+      "id": "cost_of_revenue:FY2025",
+      "concept": "cost_of_revenue",
+      "xbrl_tag": "CostOfRevenue",
+      "label": "Cost of revenue",
+      "value": 32639000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "operating_income:FY2025": {
+      "id": "operating_income:FY2025",
+      "concept": "operating_income",
+      "xbrl_tag": "OperatingIncomeLoss",
+      "label": "Operating income",
+      "value": 81453000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "net_income:FY2025": {
+      "id": "net_income:FY2025",
+      "concept": "net_income",
+      "xbrl_tag": "NetIncomeLoss",
+      "label": "Net income",
+      "value": 72880000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "interest_expense:FY2025": {
+      "id": "interest_expense:FY2025",
+      "concept": "interest_expense",
+      "xbrl_tag": "InterestExpenseNonoperating",
+      "label": "Interest expense",
+      "value": 247000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "operating_cash_flow:FY2025": {
+      "id": "operating_cash_flow:FY2025",
+      "concept": "operating_cash_flow",
+      "xbrl_tag": "NetCashProvidedByUsedInOperatingActivities",
+      "label": "Cash from operations",
+      "value": 64089000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "capex:FY2025": {
+      "id": "capex:FY2025",
+      "concept": "capex",
+      "xbrl_tag": "PaymentsToAcquireProductiveAssets",
+      "label": "Capital expenditures",
+      "value": 3236000000.0,
+      "unit": "USD",
+      "period_start": "2024-01-29",
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "total_assets:FY2025": {
+      "id": "total_assets:FY2025",
+      "concept": "total_assets",
+      "xbrl_tag": "Assets",
+      "label": "Total assets",
+      "value": 111601000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "total_liabilities:FY2025": {
+      "id": "total_liabilities:FY2025",
+      "concept": "total_liabilities",
+      "xbrl_tag": "Liabilities",
+      "label": "Total liabilities",
+      "value": 32274000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "stockholders_equity:FY2025": {
+      "id": "stockholders_equity:FY2025",
+      "concept": "stockholders_equity",
+      "xbrl_tag": "StockholdersEquity",
+      "label": "Stockholders' equity",
+      "value": 79327000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000075",
+      "form": "10-Q",
+      "filed": "2026-08-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm"
+    },
+    "current_assets:FY2025": {
+      "id": "current_assets:FY2025",
+      "concept": "current_assets",
+      "xbrl_tag": "AssetsCurrent",
+      "label": "Current assets",
+      "value": 80126000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "current_liabilities:FY2025": {
+      "id": "current_liabilities:FY2025",
+      "concept": "current_liabilities",
+      "xbrl_tag": "LiabilitiesCurrent",
+      "label": "Current liabilities",
+      "value": 18047000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "long_term_debt:FY2025": {
+      "id": "long_term_debt:FY2025",
+      "concept": "long_term_debt",
+      "xbrl_tag": "LongTermDebtNoncurrent",
+      "label": "Long-term debt",
+      "value": 8463000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "current_debt:FY2025": {
+      "id": "current_debt:FY2025",
+      "concept": "current_debt",
+      "xbrl_tag": "LongTermDebtCurrent",
+      "label": "Current debt",
+      "value": 0.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2025-01-26",
+      "fiscal_year": 2025,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "revenue:FY2024": {
+      "id": "revenue:FY2024",
+      "concept": "revenue",
+      "xbrl_tag": "Revenues",
+      "label": "Revenue",
+      "value": 60922000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "cost_of_revenue:FY2024": {
+      "id": "cost_of_revenue:FY2024",
+      "concept": "cost_of_revenue",
+      "xbrl_tag": "CostOfRevenue",
+      "label": "Cost of revenue",
+      "value": 16621000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "operating_income:FY2024": {
+      "id": "operating_income:FY2024",
+      "concept": "operating_income",
+      "xbrl_tag": "OperatingIncomeLoss",
+      "label": "Operating income",
+      "value": 32972000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "net_income:FY2024": {
+      "id": "net_income:FY2024",
+      "concept": "net_income",
+      "xbrl_tag": "NetIncomeLoss",
+      "label": "Net income",
+      "value": 29760000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "interest_expense:FY2024": {
+      "id": "interest_expense:FY2024",
+      "concept": "interest_expense",
+      "xbrl_tag": "InterestExpense",
+      "label": "Interest expense",
+      "value": 257000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "operating_cash_flow:FY2024": {
+      "id": "operating_cash_flow:FY2024",
+      "concept": "operating_cash_flow",
+      "xbrl_tag": "NetCashProvidedByUsedInOperatingActivities",
+      "label": "Cash from operations",
+      "value": 28090000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "capex:FY2024": {
+      "id": "capex:FY2024",
+      "concept": "capex",
+      "xbrl_tag": "PaymentsToAcquireProductiveAssets",
+      "label": "Capital expenditures",
+      "value": 1069000000.0,
+      "unit": "USD",
+      "period_start": "2023-01-30",
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "total_assets:FY2024": {
+      "id": "total_assets:FY2024",
+      "concept": "total_assets",
+      "xbrl_tag": "Assets",
+      "label": "Total assets",
+      "value": 65728000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "total_liabilities:FY2024": {
+      "id": "total_liabilities:FY2024",
+      "concept": "total_liabilities",
+      "xbrl_tag": "Liabilities",
+      "label": "Total liabilities",
+      "value": 22750000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "stockholders_equity:FY2024": {
+      "id": "stockholders_equity:FY2024",
+      "concept": "stockholders_equity",
+      "xbrl_tag": "StockholdersEquity",
+      "label": "Stockholders' equity",
+      "value": 42978000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "current_assets:FY2024": {
+      "id": "current_assets:FY2024",
+      "concept": "current_assets",
+      "xbrl_tag": "AssetsCurrent",
+      "label": "Current assets",
+      "value": 44345000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "current_liabilities:FY2024": {
+      "id": "current_liabilities:FY2024",
+      "concept": "current_liabilities",
+      "xbrl_tag": "LiabilitiesCurrent",
+      "label": "Current liabilities",
+      "value": 10631000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "long_term_debt:FY2024": {
+      "id": "long_term_debt:FY2024",
+      "concept": "long_term_debt",
+      "xbrl_tag": "LongTermDebtNoncurrent",
+      "label": "Long-term debt",
+      "value": 8459000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "current_debt:FY2024": {
+      "id": "current_debt:FY2024",
+      "concept": "current_debt",
+      "xbrl_tag": "LongTermDebtCurrent",
+      "label": "Current debt",
+      "value": 1250000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2024-01-28",
+      "fiscal_year": 2024,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "revenue:FY2023": {
+      "id": "revenue:FY2023",
+      "concept": "revenue",
+      "xbrl_tag": "Revenues",
+      "label": "Revenue",
+      "value": 26974000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "cost_of_revenue:FY2023": {
+      "id": "cost_of_revenue:FY2023",
+      "concept": "cost_of_revenue",
+      "xbrl_tag": "CostOfRevenue",
+      "label": "Cost of revenue",
+      "value": 11618000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "operating_income:FY2023": {
+      "id": "operating_income:FY2023",
+      "concept": "operating_income",
+      "xbrl_tag": "OperatingIncomeLoss",
+      "label": "Operating income",
+      "value": 4224000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "net_income:FY2023": {
+      "id": "net_income:FY2023",
+      "concept": "net_income",
+      "xbrl_tag": "NetIncomeLoss",
+      "label": "Net income",
+      "value": 4368000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "interest_expense:FY2023": {
+      "id": "interest_expense:FY2023",
+      "concept": "interest_expense",
+      "xbrl_tag": "InterestExpense",
+      "label": "Interest expense",
+      "value": 262000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "operating_cash_flow:FY2023": {
+      "id": "operating_cash_flow:FY2023",
+      "concept": "operating_cash_flow",
+      "xbrl_tag": "NetCashProvidedByUsedInOperatingActivities",
+      "label": "Cash from operations",
+      "value": 5641000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "capex:FY2023": {
+      "id": "capex:FY2023",
+      "concept": "capex",
+      "xbrl_tag": "PaymentsToAcquireProductiveAssets",
+      "label": "Capital expenditures",
+      "value": 1833000000.0,
+      "unit": "USD",
+      "period_start": "2022-01-31",
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "total_assets:FY2023": {
+      "id": "total_assets:FY2023",
+      "concept": "total_assets",
+      "xbrl_tag": "Assets",
+      "label": "Total assets",
+      "value": 41182000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "total_liabilities:FY2023": {
+      "id": "total_liabilities:FY2023",
+      "concept": "total_liabilities",
+      "xbrl_tag": "Liabilities",
+      "label": "Total liabilities",
+      "value": 19081000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "stockholders_equity:FY2023": {
+      "id": "stockholders_equity:FY2023",
+      "concept": "stockholders_equity",
+      "xbrl_tag": "StockholdersEquity",
+      "label": "Stockholders' equity",
+      "value": 22101000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-26-000021",
+      "form": "10-K",
+      "filed": "2026-02-25",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm"
+    },
+    "current_assets:FY2023": {
+      "id": "current_assets:FY2023",
+      "concept": "current_assets",
+      "xbrl_tag": "AssetsCurrent",
+      "label": "Current assets",
+      "value": 23073000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "current_liabilities:FY2023": {
+      "id": "current_liabilities:FY2023",
+      "concept": "current_liabilities",
+      "xbrl_tag": "LiabilitiesCurrent",
+      "label": "Current liabilities",
+      "value": 6563000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "long_term_debt:FY2023": {
+      "id": "long_term_debt:FY2023",
+      "concept": "long_term_debt",
+      "xbrl_tag": "LongTermDebtNoncurrent",
+      "label": "Long-term debt",
+      "value": 9703000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "current_debt:FY2023": {
+      "id": "current_debt:FY2023",
+      "concept": "current_debt",
+      "xbrl_tag": "LongTermDebtCurrent",
+      "label": "Current debt",
+      "value": 1250000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2023-01-29",
+      "fiscal_year": 2023,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "revenue:FY2022": {
+      "id": "revenue:FY2022",
+      "concept": "revenue",
+      "xbrl_tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "label": "Revenue",
+      "value": 26914000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-22-000036",
+      "form": "10-K",
+      "filed": "2022-03-18",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581022000036/0001045810-22-000036-index.htm"
+    },
+    "cost_of_revenue:FY2022": {
+      "id": "cost_of_revenue:FY2022",
+      "concept": "cost_of_revenue",
+      "xbrl_tag": "CostOfRevenue",
+      "label": "Cost of revenue",
+      "value": 9439000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "operating_income:FY2022": {
+      "id": "operating_income:FY2022",
+      "concept": "operating_income",
+      "xbrl_tag": "OperatingIncomeLoss",
+      "label": "Operating income",
+      "value": 10041000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "net_income:FY2022": {
+      "id": "net_income:FY2022",
+      "concept": "net_income",
+      "xbrl_tag": "NetIncomeLoss",
+      "label": "Net income",
+      "value": 9752000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "interest_expense:FY2022": {
+      "id": "interest_expense:FY2022",
+      "concept": "interest_expense",
+      "xbrl_tag": "InterestExpense",
+      "label": "Interest expense",
+      "value": 236000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "operating_cash_flow:FY2022": {
+      "id": "operating_cash_flow:FY2022",
+      "concept": "operating_cash_flow",
+      "xbrl_tag": "NetCashProvidedByUsedInOperatingActivities",
+      "label": "Cash from operations",
+      "value": 9108000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "capex:FY2022": {
+      "id": "capex:FY2022",
+      "concept": "capex",
+      "xbrl_tag": "PaymentsToAcquireProductiveAssets",
+      "label": "Capital expenditures",
+      "value": 976000000.0,
+      "unit": "USD",
+      "period_start": "2021-02-01",
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-24-000029",
+      "form": "10-K",
+      "filed": "2024-02-21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/0001045810-24-000029-index.htm"
+    },
+    "total_assets:FY2022": {
+      "id": "total_assets:FY2022",
+      "concept": "total_assets",
+      "xbrl_tag": "Assets",
+      "label": "Total assets",
+      "value": 44187000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-23-000017",
+      "form": "10-K",
+      "filed": "2023-02-24",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000017/0001045810-23-000017-index.htm"
+    },
+    "total_liabilities:FY2022": {
+      "id": "total_liabilities:FY2022",
+      "concept": "total_liabilities",
+      "xbrl_tag": "Liabilities",
+      "label": "Total liabilities",
+      "value": 17575000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-23-000017",
+      "form": "10-K",
+      "filed": "2023-02-24",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000017/0001045810-23-000017-index.htm"
+    },
+    "stockholders_equity:FY2022": {
+      "id": "stockholders_equity:FY2022",
+      "concept": "stockholders_equity",
+      "xbrl_tag": "StockholdersEquity",
+      "label": "Stockholders' equity",
+      "value": 26612000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-25-000023",
+      "form": "10-K",
+      "filed": "2025-02-26",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/0001045810-25-000023-index.htm"
+    },
+    "current_assets:FY2022": {
+      "id": "current_assets:FY2022",
+      "concept": "current_assets",
+      "xbrl_tag": "AssetsCurrent",
+      "label": "Current assets",
+      "value": 28829000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-23-000017",
+      "form": "10-K",
+      "filed": "2023-02-24",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000017/0001045810-23-000017-index.htm"
+    },
+    "current_liabilities:FY2022": {
+      "id": "current_liabilities:FY2022",
+      "concept": "current_liabilities",
+      "xbrl_tag": "LiabilitiesCurrent",
+      "label": "Current liabilities",
+      "value": 4335000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-23-000017",
+      "form": "10-K",
+      "filed": "2023-02-24",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000017/0001045810-23-000017-index.htm"
+    },
+    "long_term_debt:FY2022": {
+      "id": "long_term_debt:FY2022",
+      "concept": "long_term_debt",
+      "xbrl_tag": "LongTermDebtNoncurrent",
+      "label": "Long-term debt",
+      "value": 10946000000.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-23-000017",
+      "form": "10-K",
+      "filed": "2023-02-24",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000017/0001045810-23-000017-index.htm"
+    },
+    "current_debt:FY2022": {
+      "id": "current_debt:FY2022",
+      "concept": "current_debt",
+      "xbrl_tag": "LongTermDebtCurrent",
+      "label": "Current debt",
+      "value": 0.0,
+      "unit": "USD",
+      "period_start": null,
+      "period_end": "2022-01-30",
+      "fiscal_year": 2022,
+      "accession": "0001045810-23-000017",
+      "form": "10-K",
+      "filed": "2023-02-24",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000017/0001045810-23-000017-index.htm"
+    }
+  },
+  "ratios": {
+    "gross_margin:FY2026": {
+      "id": "gross_margin:FY2026",
+      "concept": "gross_margin",
+      "label": "Gross margin",
+      "fiscal_year": 2026,
+      "value": 0.7106808435754708,
+      "unit": "%",
+      "formula": "(Revenue - Cost of revenue) / Revenue",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2026"
+        },
+        {
+          "role": "cost_of_revenue",
+          "fact_id": "cost_of_revenue:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "operating_margin:FY2026": {
+      "id": "operating_margin:FY2026",
+      "concept": "operating_margin",
+      "label": "Operating margin",
+      "fiscal_year": 2026,
+      "value": 0.6038168363141272,
+      "unit": "%",
+      "formula": "Operating income / Revenue",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2026"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "net_margin:FY2026": {
+      "id": "net_margin:FY2026",
+      "concept": "net_margin",
+      "label": "Net margin",
+      "fiscal_year": 2026,
+      "value": 0.5560253406070261,
+      "unit": "%",
+      "formula": "Net income / Revenue",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2026"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "revenue_growth:FY2026": {
+      "id": "revenue_growth:FY2026",
+      "concept": "revenue_growth",
+      "label": "Revenue growth",
+      "fiscal_year": 2026,
+      "value": 0.654735357900948,
+      "unit": "%",
+      "formula": "(Revenue_FY - Revenue_prior) / Revenue_prior",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2026"
+        },
+        {
+          "role": "revenue_prior",
+          "fact_id": "revenue:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "roe:FY2026": {
+      "id": "roe:FY2026",
+      "concept": "roe",
+      "label": "Return on equity",
+      "fiscal_year": 2026,
+      "value": 0.7633333969089534,
+      "unit": "%",
+      "formula": "Net income / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2026"
+        },
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "roa:FY2026": {
+      "id": "roa:FY2026",
+      "concept": "roa",
+      "label": "Return on assets",
+      "fiscal_year": 2026,
+      "value": 0.5805863551302447,
+      "unit": "%",
+      "formula": "Net income / Total assets",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2026"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "current_ratio:FY2026": {
+      "id": "current_ratio:FY2026",
+      "concept": "current_ratio",
+      "label": "Current ratio",
+      "fiscal_year": 2026,
+      "value": 3.905263812455306,
+      "unit": "x",
+      "formula": "Current assets / Current liabilities",
+      "inputs": [
+        {
+          "role": "current_assets",
+          "fact_id": "current_assets:FY2026"
+        },
+        {
+          "role": "current_liabilities",
+          "fact_id": "current_liabilities:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "debt_to_equity:FY2026": {
+      "id": "debt_to_equity:FY2026",
+      "concept": "debt_to_equity",
+      "label": "Debt to equity",
+      "fiscal_year": 2026,
+      "value": 0.05383583503398117,
+      "unit": "x",
+      "formula": "(Long-term debt + Current debt) / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2026"
+        },
+        {
+          "role": "long_term_debt",
+          "fact_id": "long_term_debt:FY2026"
+        },
+        {
+          "role": "current_debt",
+          "fact_id": "current_debt:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "free_cash_flow:FY2026": {
+      "id": "free_cash_flow:FY2026",
+      "concept": "free_cash_flow",
+      "label": "Free cash flow",
+      "fiscal_year": 2026,
+      "value": 96676000000.0,
+      "unit": "USD",
+      "formula": "Cash from operations - Capital expenditures",
+      "inputs": [
+        {
+          "role": "operating_cash_flow",
+          "fact_id": "operating_cash_flow:FY2026"
+        },
+        {
+          "role": "capex",
+          "fact_id": "capex:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "fcf_margin:FY2026": {
+      "id": "fcf_margin:FY2026",
+      "concept": "fcf_margin",
+      "label": "Free cash flow margin",
+      "fiscal_year": 2026,
+      "value": 0.44770258129648327,
+      "unit": "%",
+      "formula": "Free cash flow / Revenue",
+      "inputs": [
+        {
+          "role": "free_cash_flow",
+          "fact_id": "free_cash_flow:FY2026"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "interest_coverage:FY2026": {
+      "id": "interest_coverage:FY2026",
+      "concept": "interest_coverage",
+      "label": "Interest coverage",
+      "fiscal_year": 2026,
+      "value": 503.42471042471044,
+      "unit": "x",
+      "formula": "Operating income / Interest expense",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2026"
+        },
+        {
+          "role": "interest_expense",
+          "fact_id": "interest_expense:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "asset_turnover:FY2026": {
+      "id": "asset_turnover:FY2026",
+      "concept": "asset_turnover",
+      "label": "Asset turnover",
+      "fiscal_year": 2026,
+      "value": 1.0441724733200195,
+      "unit": "x",
+      "formula": "Revenue / Total assets",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2026"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2026"
+        }
+      ],
+      "reason": null
+    },
+    "gross_margin:FY2025": {
+      "id": "gross_margin:FY2025",
+      "concept": "gross_margin",
+      "label": "Gross margin",
+      "fiscal_year": 2025,
+      "value": 0.7498869705816992,
+      "unit": "%",
+      "formula": "(Revenue - Cost of revenue) / Revenue",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2025"
+        },
+        {
+          "role": "cost_of_revenue",
+          "fact_id": "cost_of_revenue:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "operating_margin:FY2025": {
+      "id": "operating_margin:FY2025",
+      "concept": "operating_margin",
+      "label": "Operating margin",
+      "fiscal_year": 2025,
+      "value": 0.6241752683969747,
+      "unit": "%",
+      "formula": "Operating income / Revenue",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2025"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "net_margin:FY2025": {
+      "id": "net_margin:FY2025",
+      "concept": "net_margin",
+      "label": "Net margin",
+      "fiscal_year": 2025,
+      "value": 0.5584802715771244,
+      "unit": "%",
+      "formula": "Net income / Revenue",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2025"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "revenue_growth:FY2025": {
+      "id": "revenue_growth:FY2025",
+      "concept": "revenue_growth",
+      "label": "Revenue growth",
+      "fiscal_year": 2025,
+      "value": 1.1420340763599357,
+      "unit": "%",
+      "formula": "(Revenue_FY - Revenue_prior) / Revenue_prior",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2025"
+        },
+        {
+          "role": "revenue_prior",
+          "fact_id": "revenue:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "roe:FY2025": {
+      "id": "roe:FY2025",
+      "concept": "roe",
+      "label": "Return on equity",
+      "fiscal_year": 2025,
+      "value": 0.9187288060811577,
+      "unit": "%",
+      "formula": "Net income / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2025"
+        },
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "roa:FY2025": {
+      "id": "roa:FY2025",
+      "concept": "roa",
+      "label": "Return on assets",
+      "fiscal_year": 2025,
+      "value": 0.6530407433625147,
+      "unit": "%",
+      "formula": "Net income / Total assets",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2025"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "current_ratio:FY2025": {
+      "id": "current_ratio:FY2025",
+      "concept": "current_ratio",
+      "label": "Current ratio",
+      "fiscal_year": 2025,
+      "value": 4.439851498864077,
+      "unit": "x",
+      "formula": "Current assets / Current liabilities",
+      "inputs": [
+        {
+          "role": "current_assets",
+          "fact_id": "current_assets:FY2025"
+        },
+        {
+          "role": "current_liabilities",
+          "fact_id": "current_liabilities:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "debt_to_equity:FY2025": {
+      "id": "debt_to_equity:FY2025",
+      "concept": "debt_to_equity",
+      "label": "Debt to equity",
+      "fiscal_year": 2025,
+      "value": 0.10668498745698186,
+      "unit": "x",
+      "formula": "(Long-term debt + Current debt) / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2025"
+        },
+        {
+          "role": "long_term_debt",
+          "fact_id": "long_term_debt:FY2025"
+        },
+        {
+          "role": "current_debt",
+          "fact_id": "current_debt:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "free_cash_flow:FY2025": {
+      "id": "free_cash_flow:FY2025",
+      "concept": "free_cash_flow",
+      "label": "Free cash flow",
+      "fiscal_year": 2025,
+      "value": 60853000000.0,
+      "unit": "USD",
+      "formula": "Cash from operations - Capital expenditures",
+      "inputs": [
+        {
+          "role": "operating_cash_flow",
+          "fact_id": "operating_cash_flow:FY2025"
+        },
+        {
+          "role": "capex",
+          "fact_id": "capex:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "fcf_margin:FY2025": {
+      "id": "fcf_margin:FY2025",
+      "concept": "fcf_margin",
+      "label": "Free cash flow margin",
+      "fiscal_year": 2025,
+      "value": 0.46631723334636044,
+      "unit": "%",
+      "formula": "Free cash flow / Revenue",
+      "inputs": [
+        {
+          "role": "free_cash_flow",
+          "fact_id": "free_cash_flow:FY2025"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "interest_coverage:FY2025": {
+      "id": "interest_coverage:FY2025",
+      "concept": "interest_coverage",
+      "label": "Interest coverage",
+      "fiscal_year": 2025,
+      "value": 329.7692307692308,
+      "unit": "x",
+      "formula": "Operating income / Interest expense",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2025"
+        },
+        {
+          "role": "interest_expense",
+          "fact_id": "interest_expense:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "asset_turnover:FY2025": {
+      "id": "asset_turnover:FY2025",
+      "concept": "asset_turnover",
+      "label": "Asset turnover",
+      "fiscal_year": 2025,
+      "value": 1.169317479234057,
+      "unit": "x",
+      "formula": "Revenue / Total assets",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2025"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2025"
+        }
+      ],
+      "reason": null
+    },
+    "gross_margin:FY2024": {
+      "id": "gross_margin:FY2024",
+      "concept": "gross_margin",
+      "label": "Gross margin",
+      "fiscal_year": 2024,
+      "value": 0.7271757329043695,
+      "unit": "%",
+      "formula": "(Revenue - Cost of revenue) / Revenue",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2024"
+        },
+        {
+          "role": "cost_of_revenue",
+          "fact_id": "cost_of_revenue:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "operating_margin:FY2024": {
+      "id": "operating_margin:FY2024",
+      "concept": "operating_margin",
+      "label": "Operating margin",
+      "fiscal_year": 2024,
+      "value": 0.5412166376678376,
+      "unit": "%",
+      "formula": "Operating income / Revenue",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2024"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "net_margin:FY2024": {
+      "id": "net_margin:FY2024",
+      "concept": "net_margin",
+      "label": "Net margin",
+      "fiscal_year": 2024,
+      "value": 0.4884934834706674,
+      "unit": "%",
+      "formula": "Net income / Revenue",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2024"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "revenue_growth:FY2024": {
+      "id": "revenue_growth:FY2024",
+      "concept": "revenue_growth",
+      "label": "Revenue growth",
+      "fiscal_year": 2024,
+      "value": 1.2585452658115222,
+      "unit": "%",
+      "formula": "(Revenue_FY - Revenue_prior) / Revenue_prior",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2024"
+        },
+        {
+          "role": "revenue_prior",
+          "fact_id": "revenue:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "roe:FY2024": {
+      "id": "roe:FY2024",
+      "concept": "roe",
+      "label": "Return on equity",
+      "fiscal_year": 2024,
+      "value": 0.6924472986178976,
+      "unit": "%",
+      "formula": "Net income / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2024"
+        },
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "roa:FY2024": {
+      "id": "roa:FY2024",
+      "concept": "roa",
+      "label": "Return on assets",
+      "fiscal_year": 2024,
+      "value": 0.4527750730282376,
+      "unit": "%",
+      "formula": "Net income / Total assets",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2024"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "current_ratio:FY2024": {
+      "id": "current_ratio:FY2024",
+      "concept": "current_ratio",
+      "label": "Current ratio",
+      "fiscal_year": 2024,
+      "value": 4.171291505973097,
+      "unit": "x",
+      "formula": "Current assets / Current liabilities",
+      "inputs": [
+        {
+          "role": "current_assets",
+          "fact_id": "current_assets:FY2024"
+        },
+        {
+          "role": "current_liabilities",
+          "fact_id": "current_liabilities:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "debt_to_equity:FY2024": {
+      "id": "debt_to_equity:FY2024",
+      "concept": "debt_to_equity",
+      "label": "Debt to equity",
+      "fiscal_year": 2024,
+      "value": 0.22590627763041557,
+      "unit": "x",
+      "formula": "(Long-term debt + Current debt) / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2024"
+        },
+        {
+          "role": "long_term_debt",
+          "fact_id": "long_term_debt:FY2024"
+        },
+        {
+          "role": "current_debt",
+          "fact_id": "current_debt:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "free_cash_flow:FY2024": {
+      "id": "free_cash_flow:FY2024",
+      "concept": "free_cash_flow",
+      "label": "Free cash flow",
+      "fiscal_year": 2024,
+      "value": 27021000000.0,
+      "unit": "USD",
+      "formula": "Cash from operations - Capital expenditures",
+      "inputs": [
+        {
+          "role": "operating_cash_flow",
+          "fact_id": "operating_cash_flow:FY2024"
+        },
+        {
+          "role": "capex",
+          "fact_id": "capex:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "fcf_margin:FY2024": {
+      "id": "fcf_margin:FY2024",
+      "concept": "fcf_margin",
+      "label": "Free cash flow margin",
+      "fiscal_year": 2024,
+      "value": 0.4435343554052723,
+      "unit": "%",
+      "formula": "Free cash flow / Revenue",
+      "inputs": [
+        {
+          "role": "free_cash_flow",
+          "fact_id": "free_cash_flow:FY2024"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "interest_coverage:FY2024": {
+      "id": "interest_coverage:FY2024",
+      "concept": "interest_coverage",
+      "label": "Interest coverage",
+      "fiscal_year": 2024,
+      "value": 128.295719844358,
+      "unit": "x",
+      "formula": "Operating income / Interest expense",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2024"
+        },
+        {
+          "role": "interest_expense",
+          "fact_id": "interest_expense:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "asset_turnover:FY2024": {
+      "id": "asset_turnover:FY2024",
+      "concept": "asset_turnover",
+      "label": "Asset turnover",
+      "fiscal_year": 2024,
+      "value": 0.9268804771178188,
+      "unit": "x",
+      "formula": "Revenue / Total assets",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2024"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2024"
+        }
+      ],
+      "reason": null
+    },
+    "gross_margin:FY2023": {
+      "id": "gross_margin:FY2023",
+      "concept": "gross_margin",
+      "label": "Gross margin",
+      "fiscal_year": 2023,
+      "value": 0.5692889449099132,
+      "unit": "%",
+      "formula": "(Revenue - Cost of revenue) / Revenue",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2023"
+        },
+        {
+          "role": "cost_of_revenue",
+          "fact_id": "cost_of_revenue:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "operating_margin:FY2023": {
+      "id": "operating_margin:FY2023",
+      "concept": "operating_margin",
+      "label": "Operating margin",
+      "fiscal_year": 2023,
+      "value": 0.1565952398606065,
+      "unit": "%",
+      "formula": "Operating income / Revenue",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2023"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "net_margin:FY2023": {
+      "id": "net_margin:FY2023",
+      "concept": "net_margin",
+      "label": "Net margin",
+      "fiscal_year": 2023,
+      "value": 0.16193371394676356,
+      "unit": "%",
+      "formula": "Net income / Revenue",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2023"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "revenue_growth:FY2023": {
+      "id": "revenue_growth:FY2023",
+      "concept": "revenue_growth",
+      "label": "Revenue growth",
+      "fiscal_year": 2023,
+      "value": 0.0022293230289068887,
+      "unit": "%",
+      "formula": "(Revenue_FY - Revenue_prior) / Revenue_prior",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2023"
+        },
+        {
+          "role": "revenue_prior",
+          "fact_id": "revenue:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "roe:FY2023": {
+      "id": "roe:FY2023",
+      "concept": "roe",
+      "label": "Return on equity",
+      "fiscal_year": 2023,
+      "value": 0.19763811592235644,
+      "unit": "%",
+      "formula": "Net income / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2023"
+        },
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "roa:FY2023": {
+      "id": "roa:FY2023",
+      "concept": "roa",
+      "label": "Return on assets",
+      "fiscal_year": 2023,
+      "value": 0.10606575688407557,
+      "unit": "%",
+      "formula": "Net income / Total assets",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2023"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "current_ratio:FY2023": {
+      "id": "current_ratio:FY2023",
+      "concept": "current_ratio",
+      "label": "Current ratio",
+      "fiscal_year": 2023,
+      "value": 3.515617857687033,
+      "unit": "x",
+      "formula": "Current assets / Current liabilities",
+      "inputs": [
+        {
+          "role": "current_assets",
+          "fact_id": "current_assets:FY2023"
+        },
+        {
+          "role": "current_liabilities",
+          "fact_id": "current_liabilities:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "debt_to_equity:FY2023": {
+      "id": "debt_to_equity:FY2023",
+      "concept": "debt_to_equity",
+      "label": "Debt to equity",
+      "fiscal_year": 2023,
+      "value": 0.4955884349124474,
+      "unit": "x",
+      "formula": "(Long-term debt + Current debt) / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2023"
+        },
+        {
+          "role": "long_term_debt",
+          "fact_id": "long_term_debt:FY2023"
+        },
+        {
+          "role": "current_debt",
+          "fact_id": "current_debt:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "free_cash_flow:FY2023": {
+      "id": "free_cash_flow:FY2023",
+      "concept": "free_cash_flow",
+      "label": "Free cash flow",
+      "fiscal_year": 2023,
+      "value": 3808000000.0,
+      "unit": "USD",
+      "formula": "Cash from operations - Capital expenditures",
+      "inputs": [
+        {
+          "role": "operating_cash_flow",
+          "fact_id": "operating_cash_flow:FY2023"
+        },
+        {
+          "role": "capex",
+          "fact_id": "capex:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "fcf_margin:FY2023": {
+      "id": "fcf_margin:FY2023",
+      "concept": "fcf_margin",
+      "label": "Free cash flow margin",
+      "fiscal_year": 2023,
+      "value": 0.14117298138948617,
+      "unit": "%",
+      "formula": "Free cash flow / Revenue",
+      "inputs": [
+        {
+          "role": "free_cash_flow",
+          "fact_id": "free_cash_flow:FY2023"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "interest_coverage:FY2023": {
+      "id": "interest_coverage:FY2023",
+      "concept": "interest_coverage",
+      "label": "Interest coverage",
+      "fiscal_year": 2023,
+      "value": 16.12213740458015,
+      "unit": "x",
+      "formula": "Operating income / Interest expense",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2023"
+        },
+        {
+          "role": "interest_expense",
+          "fact_id": "interest_expense:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "asset_turnover:FY2023": {
+      "id": "asset_turnover:FY2023",
+      "concept": "asset_turnover",
+      "label": "Asset turnover",
+      "fiscal_year": 2023,
+      "value": 0.6549949006847652,
+      "unit": "x",
+      "formula": "Revenue / Total assets",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2023"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2023"
+        }
+      ],
+      "reason": null
+    },
+    "gross_margin:FY2022": {
+      "id": "gross_margin:FY2022",
+      "concept": "gross_margin",
+      "label": "Gross margin",
+      "fiscal_year": 2022,
+      "value": 0.6492903321691313,
+      "unit": "%",
+      "formula": "(Revenue - Cost of revenue) / Revenue",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2022"
+        },
+        {
+          "role": "cost_of_revenue",
+          "fact_id": "cost_of_revenue:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "operating_margin:FY2022": {
+      "id": "operating_margin:FY2022",
+      "concept": "operating_margin",
+      "label": "Operating margin",
+      "fiscal_year": 2022,
+      "value": 0.3730772088875678,
+      "unit": "%",
+      "formula": "Operating income / Revenue",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2022"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "net_margin:FY2022": {
+      "id": "net_margin:FY2022",
+      "concept": "net_margin",
+      "label": "Net margin",
+      "fiscal_year": 2022,
+      "value": 0.3623393029649996,
+      "unit": "%",
+      "formula": "Net income / Revenue",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2022"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "revenue_growth:FY2022": {
+      "id": "revenue_growth:FY2022",
+      "concept": "revenue_growth",
+      "label": "Revenue growth",
+      "fiscal_year": 2022,
+      "value": null,
+      "unit": "%",
+      "formula": "(Revenue_FY - Revenue_prior) / Revenue_prior",
+      "inputs": [],
+      "reason": "Missing input(s): revenue_prior."
+    },
+    "roe:FY2022": {
+      "id": "roe:FY2022",
+      "concept": "roe",
+      "label": "Return on equity",
+      "fiscal_year": 2022,
+      "value": 0.3664512250112731,
+      "unit": "%",
+      "formula": "Net income / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2022"
+        },
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "roa:FY2022": {
+      "id": "roa:FY2022",
+      "concept": "roa",
+      "label": "Return on assets",
+      "fiscal_year": 2022,
+      "value": 0.22069839545567702,
+      "unit": "%",
+      "formula": "Net income / Total assets",
+      "inputs": [
+        {
+          "role": "net_income",
+          "fact_id": "net_income:FY2022"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "current_ratio:FY2022": {
+      "id": "current_ratio:FY2022",
+      "concept": "current_ratio",
+      "label": "Current ratio",
+      "fiscal_year": 2022,
+      "value": 6.650288350634371,
+      "unit": "x",
+      "formula": "Current assets / Current liabilities",
+      "inputs": [
+        {
+          "role": "current_assets",
+          "fact_id": "current_assets:FY2022"
+        },
+        {
+          "role": "current_liabilities",
+          "fact_id": "current_liabilities:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "debt_to_equity:FY2022": {
+      "id": "debt_to_equity:FY2022",
+      "concept": "debt_to_equity",
+      "label": "Debt to equity",
+      "fiscal_year": 2022,
+      "value": 0.41131820231474525,
+      "unit": "x",
+      "formula": "(Long-term debt + Current debt) / Stockholders' equity",
+      "inputs": [
+        {
+          "role": "stockholders_equity",
+          "fact_id": "stockholders_equity:FY2022"
+        },
+        {
+          "role": "long_term_debt",
+          "fact_id": "long_term_debt:FY2022"
+        },
+        {
+          "role": "current_debt",
+          "fact_id": "current_debt:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "free_cash_flow:FY2022": {
+      "id": "free_cash_flow:FY2022",
+      "concept": "free_cash_flow",
+      "label": "Free cash flow",
+      "fiscal_year": 2022,
+      "value": 8132000000.0,
+      "unit": "USD",
+      "formula": "Cash from operations - Capital expenditures",
+      "inputs": [
+        {
+          "role": "operating_cash_flow",
+          "fact_id": "operating_cash_flow:FY2022"
+        },
+        {
+          "role": "capex",
+          "fact_id": "capex:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "fcf_margin:FY2022": {
+      "id": "fcf_margin:FY2022",
+      "concept": "fcf_margin",
+      "label": "Free cash flow margin",
+      "fiscal_year": 2022,
+      "value": 0.3021475811845136,
+      "unit": "%",
+      "formula": "Free cash flow / Revenue",
+      "inputs": [
+        {
+          "role": "free_cash_flow",
+          "fact_id": "free_cash_flow:FY2022"
+        },
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "interest_coverage:FY2022": {
+      "id": "interest_coverage:FY2022",
+      "concept": "interest_coverage",
+      "label": "Interest coverage",
+      "fiscal_year": 2022,
+      "value": 42.54661016949152,
+      "unit": "x",
+      "formula": "Operating income / Interest expense",
+      "inputs": [
+        {
+          "role": "operating_income",
+          "fact_id": "operating_income:FY2022"
+        },
+        {
+          "role": "interest_expense",
+          "fact_id": "interest_expense:FY2022"
+        }
+      ],
+      "reason": null
+    },
+    "asset_turnover:FY2022": {
+      "id": "asset_turnover:FY2022",
+      "concept": "asset_turnover",
+      "label": "Asset turnover",
+      "fiscal_year": 2022,
+      "value": 0.6090931721999683,
+      "unit": "x",
+      "formula": "Revenue / Total assets",
+      "inputs": [
+        {
+          "role": "revenue",
+          "fact_id": "revenue:FY2022"
+        },
+        {
+          "role": "total_assets",
+          "fact_id": "total_assets:FY2022"
+        }
+      ],
+      "reason": null
+    }
+  },
+  "missing": [],
+  "reports_gross_margin": true
+}
