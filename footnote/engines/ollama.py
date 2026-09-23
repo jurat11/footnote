@@ -19,10 +19,8 @@ from .base import SYSTEM_PROMPT, Engine, ReportRequest
 def _host() -> str:
     return os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
 
-
 def _model() -> str:
     return os.environ.get("OLLAMA_MODEL", "llama3.1")
-
 
 def ollama_available() -> bool:
     try:
@@ -33,7 +31,6 @@ def ollama_available() -> bool:
     except (httpx.HTTPError, ValueError):
         return False
 
-
 def _ollama_tools() -> list[dict]:
     return [
         {
@@ -43,12 +40,10 @@ def _ollama_tools() -> list[dict]:
         for t in TOOL_SCHEMAS
     ]
 
-
 def _user_prompt(request: ReportRequest) -> str:
     if request.mode == "compare":
         return f"Compare {', '.join(request.tickers)} using the tools, then write the cited report with token numbers only."
     return f"Analyze {request.primary} for its last {request.years} fiscal years using the tools, then write the cited report with token numbers only."
-
 
 class OllamaEngine(Engine):
     name = "ollama"

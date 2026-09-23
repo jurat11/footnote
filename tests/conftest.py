@@ -9,19 +9,15 @@ import pytest
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
-
 def load_index() -> dict:
     return json.loads((FIXTURES / "index.json").read_text())
-
 
 @pytest.fixture(scope="session")
 def fixtures_index() -> dict:
     return load_index()
 
-
 def load_companyfacts(ticker: str) -> dict:
     return json.loads((FIXTURES / f"{ticker}_companyfacts.json").read_text())
-
 
 def offline_ledger(ticker: str, years: int = 5):
     """Build a full Ledger from a committed fixture, with no network access."""
@@ -42,7 +38,6 @@ def offline_ledger(ticker: str, years: int = 5):
         missing=fb.missing,
         reports_gross_margin=fb.reports_gross_margin,
     )
-
 
 def mkfact(concept: str, year: int, value: float, unit: str = "USD"):
     """Build a minimal Fact for ratio unit tests."""

@@ -20,7 +20,6 @@ def _money(value: float) -> str:
         return f"{sign}${v / 1e3:.1f}K"
     return f"{sign}${v:,.0f}"
 
-
 def _plain_big(value: float) -> str:
     sign = "-" if value < 0 else ""
     v = abs(value)
@@ -31,7 +30,6 @@ def _plain_big(value: float) -> str:
     if v >= 1e6:
         return f"{sign}{v / 1e6:.1f}M"
     return f"{sign}{v:,.0f}"
-
 
 def format_value(value: float | None, unit: str) -> str:
     """Format a ledger value for display according to its unit."""
@@ -48,5 +46,4 @@ def format_value(value: float | None, unit: str) -> str:
         return f"${value:,.2f}"
     if u == "shares":
         return _plain_big(value)
-    # Unknown unit: show the number plainly with its unit appended.
     return f"{value:,.2f} {unit}"

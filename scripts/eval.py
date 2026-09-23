@@ -23,7 +23,6 @@ from footnote.evallist import EVAL_TICKERS
 
 OUT = Path(__file__).resolve().parent.parent / "eval"
 
-
 def _token_usage(run_path: Path) -> tuple[int, int]:
     """Sum input/output tokens from a run log (0 for the template engine)."""
     inp = outp = 0
@@ -37,7 +36,6 @@ def _token_usage(run_path: Path) -> tuple[int, int]:
     except OSError:
         pass
     return inp, outp
-
 
 def main() -> None:
     args = [a for a in sys.argv[1:]]
@@ -56,7 +54,6 @@ def main() -> None:
             out = run_analysis(t, years=5, out_dir=str(OUT / "reports"), engine=engine)
             elapsed = time.time() - start
             uncited = sum(1 for v in out.verification.violations if v.kind == "uncited_number")
-            # Find the most recent run log for token accounting.
             logs = sorted(config.RUNS_DIR.glob("*.jsonl"))
             inp, outp = _token_usage(logs[-1]) if logs else (0, 0)
             rows.append({
@@ -67,13 +64,12 @@ def main() -> None:
             })
             print(f"{t}: ok={out.verification.ok} uncited={uncited} retries={out.retries} "
                   f"tools={out.tool_calls} {elapsed:.1f}s")
-        except (VerificationFailed, Exception) as exc:  # noqa: BLE001
+        except (VerificationFailed, Exception) as exc:
             rows.append({"ticker": t, "ok": False, "uncited": "-", "retries": "-",
                          "tool_calls": "-", "tokens_in": "-", "tokens_out": "-",
                          "seconds": round(time.time() - start, 1), "engine": engine, "error": str(exc)})
             print(f"{t}: ERROR {exc}")
 
-    # Cost estimate is only meaningful for a paid engine; left as 0 for template/ollama.
     lines = ["# Eval results", "",
              f"Engine: `{engine}`  ·  Tickers: {len(tickers)}", "",
              "| Ticker | OK | Uncited | Retries | Tool calls | Tokens in | Tokens out | Seconds |",
@@ -89,7 +85,6 @@ def main() -> None:
                   f"Total uncited numbers: {total_uncited} (target 0).**", ""]
     (OUT / "eval.md").write_text("\n".join(lines))
     print("\nWrote", OUT / "eval.md")
-
 
 if __name__ == "__main__":
     main()

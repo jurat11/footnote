@@ -30,8 +30,6 @@ class ToolContext:
             self._ledgers[key] = build_ledger(self.client, key, years=self.years)
         return self._ledgers[key]
 
-
-# --- tool implementations --------------------------------------------------
 def resolve_company(ctx: ToolContext, query: str) -> dict[str, Any]:
     led = ctx.ledger(query)
     c = led.company
@@ -44,7 +42,6 @@ def resolve_company(ctx: ToolContext, query: str) -> dict[str, Any]:
     }
     ctx.logger.log("tool", name="resolve_company", args={"query": query}, result=out)
     return out
-
 
 def get_financials(ctx: ToolContext, ticker: str, years: int | None = None) -> dict[str, Any]:
     led = ctx.ledger(ticker)
@@ -70,7 +67,6 @@ def get_financials(ctx: ToolContext, ticker: str, years: int | None = None) -> d
     ctx.logger.log("tool", name="get_financials", args={"ticker": ticker}, result_summary={"n_facts": len(facts)})
     return out
 
-
 def compute_ratios(ctx: ToolContext, ticker: str) -> dict[str, Any]:
     led = ctx.ledger(ticker)
     ratios = [
@@ -90,7 +86,6 @@ def compute_ratios(ctx: ToolContext, ticker: str) -> dict[str, Any]:
     out = {"ticker": led.company.ticker, "ratios": ratios}
     ctx.logger.log("tool", name="compute_ratios", args={"ticker": ticker}, result_summary={"n_ratios": len(ratios)})
     return out
-
 
 def compare_companies(
     ctx: ToolContext, tickers: list[str], metric_ids: list[str] | None = None
@@ -125,7 +120,6 @@ def compare_companies(
     ctx.logger.log("tool", name="compare_companies", args={"tickers": tickers, "metric_ids": metrics})
     return out
 
-
 def list_missing(ctx: ToolContext, ticker: str) -> dict[str, Any]:
     led = ctx.ledger(ticker)
     missing = [
@@ -136,8 +130,6 @@ def list_missing(ctx: ToolContext, ticker: str) -> dict[str, Any]:
     ctx.logger.log("tool", name="list_missing", args={"ticker": ticker}, result_summary={"n_missing": len(missing)})
     return out
 
-
-# --- dispatch + schemas (for the LLM engines) ------------------------------
 TOOL_FUNCTIONS = {
     "resolve_company": resolve_company,
     "get_financials": get_financials,
@@ -146,17 +138,15 @@ TOOL_FUNCTIONS = {
     "list_missing": list_missing,
 }
 
-
 def dispatch(ctx: ToolContext, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
     fn = TOOL_FUNCTIONS.get(name)
     if fn is None:
         return {"error": f"unknown tool {name}"}
     try:
         return fn(ctx, **arguments)
-    except Exception as exc:  # surfaced to the model so it can adapt
+    except Exception as exc:
         ctx.logger.log("tool_error", name=name, args=arguments, error=str(exc))
         return {"error": str(exc)}
-
 
 TOOL_SCHEMAS = [
     {

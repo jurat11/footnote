@@ -16,9 +16,7 @@ def test_template_analysis_passes_verification():
     result = verify(text, led)
     assert result.ok, result.violations
     assert result.token_count > 5
-    # And it renders without unknown tokens.
     assert not render(text, led).unknown_tokens
-
 
 def test_template_bank_report_passes_and_notes_no_gross_margin():
     led = offline_ledger("JPM")
@@ -26,19 +24,15 @@ def test_template_bank_report_passes_and_notes_no_gross_margin():
     assert "gross margin is not applicable" in text
     assert verify(text, led).ok
 
-
 def test_combined_ledger_namespaces_ids():
     aapl = offline_ledger("AAPL")
     msft = offline_ledger("MSFT")
     combined = combine_ledgers({"AAPL": aapl, "MSFT": msft})
-    # Same concept/year from two companies must be distinct ids.
     ay = aapl.years[0]
     my = msft.years[0]
     assert f"AAPL:revenue:FY{ay}" in combined.facts
     assert f"MSFT:revenue:FY{my}" in combined.facts
-    # Years are the union.
     assert set(combined.years) >= set(aapl.years) | set(msft.years)
-
 
 def test_namespaced_comparison_token_resolves_to_right_company():
     aapl = offline_ledger("AAPL")

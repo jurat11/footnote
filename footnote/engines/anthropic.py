@@ -6,6 +6,7 @@ template engine runs instead and the project costs nothing.
 
 from __future__ import annotations
 
+import importlib.util
 import os
 
 from .. import config
@@ -16,11 +17,7 @@ from .base import SYSTEM_PROMPT, Engine, ReportRequest
 def anthropic_available() -> bool:
     if not os.environ.get("ANTHROPIC_API_KEY"):
         return False
-    try:
-        import anthropic  # noqa: F401
-    except ImportError:
-        return False
-    return True
+    return importlib.util.find_spec("anthropic") is not None
 
 
 def _user_prompt(request: ReportRequest) -> str:
@@ -34,7 +31,6 @@ def _user_prompt(request: ReportRequest) -> str:
         f"Write the cited analysis of {request.primary} for its last {request.years} fiscal years. "
         f"Use the tools to gather ledger ids, then write the report using only token references for numbers."
     )
-
 
 class AnthropicEngine(Engine):
     name = "anthropic"
@@ -79,7 +75,6 @@ class AnthropicEngine(Engine):
                         }
                     )
             messages.append({"role": "user", "content": tool_results})
-        # Ran out of tool calls: ask for the final write-up explicitly.
         messages.append({"role": "user", "content": "Now write the final report."})
         resp = self.client.messages.create(
             model=self.model, max_tokens=4096, system=SYSTEM_PROMPT, messages=messages

@@ -23,7 +23,6 @@ def test_fact_token_renders_value_and_footnote():
     assert fact.source_url in fn.urls
     assert fact.form in fn.description
 
-
 def test_ratio_footnote_lists_formula_and_inputs():
     led = offline_ledger("AAPL")
     y = led.years[0]
@@ -31,9 +30,7 @@ def test_ratio_footnote_lists_formula_and_inputs():
     fn = result.footnotes[0]
     assert "Formula:" in fn.description
     assert "Inputs:" in fn.description
-    # Ratio citation must include the filings of its inputs.
     assert len(fn.urls) >= 1
-
 
 def test_repeated_token_shares_one_footnote_number():
     led = offline_ledger("AAPL")
@@ -43,13 +40,11 @@ def test_repeated_token_shares_one_footnote_number():
     assert len(result.footnotes) == 1
     assert result.markdown.count("[1]") == 2
 
-
 def test_unknown_token_is_reported():
     led = offline_ledger("AAPL")
     result = render("Value {{F:ebitda:FY2024}}.", led)
     assert result.unknown_tokens == ["{{F:ebitda:FY2024}}"]
     assert "[UNKNOWN:ebitda:FY2024]" in result.markdown
-
 
 def test_html_is_self_contained_with_links():
     led = offline_ledger("AAPL")

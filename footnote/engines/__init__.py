@@ -35,5 +35,4 @@ def get_engine(name: str) -> Engine:
         return TemplateEngine()
     raise ValueError(f"unknown engine: {name!r}")
 
-
 __all__ = ["Engine", "ReportRequest", "get_engine"]

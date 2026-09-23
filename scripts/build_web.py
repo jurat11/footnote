@@ -20,7 +20,6 @@ WEB_DATA = ROOT / "web" / "data"
 
 FILES = ["report.md", "ledger.json", "footnotes.json", "verification.json"]
 
-
 def main() -> None:
     tickers = json.loads((DEMO / "index.json").read_text())
     if WEB_DATA.exists():
@@ -36,7 +35,6 @@ def main() -> None:
                 shutil.copy(src, dest / name)
         print(f"staged {t}")
     print("wrote", WEB_DATA)
-
 
 if __name__ == "__main__":
     main()

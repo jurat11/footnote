@@ -17,7 +17,6 @@ from .models import Ledger
 
 app = typer.Typer(add_completion=False, help="Analyze SEC filings with every number cited.")
 
-
 def _print_ledger(ledger: Ledger) -> None:
     c = ledger.company
     typer.echo(f"\n{c.name}  ({c.ticker})   CIK {c.cik}")
@@ -85,7 +84,6 @@ def _print_ledger(ledger: Ledger) -> None:
             typer.echo(f"  {concept:24} {yrs_s}")
     typer.echo("")
 
-
 @app.command()
 def ledger(
     query: str = typer.Argument(..., help="Ticker or company name, e.g. AAPL"),
@@ -99,7 +97,6 @@ def ledger(
         typer.echo(led.model_dump_json(indent=2))
     else:
         _print_ledger(led)
-
 
 @app.command()
 def analyze(
@@ -117,7 +114,6 @@ def analyze(
         typer.secho(f"Cannot analyze {query}: {exc}", fg=typer.colors.RED)
         raise typer.Exit(code=1) from exc
 
-
 @app.command()
 def compare(
     tickers: list[str] = typer.Argument(..., help="Two or more tickers"),
@@ -133,7 +129,6 @@ def compare(
     except (NoDataError, LookupError) as exc:
         typer.secho(f"Cannot compare: {exc}", fg=typer.colors.RED)
         raise typer.Exit(code=1) from exc
-
 
 if __name__ == "__main__":
     app()

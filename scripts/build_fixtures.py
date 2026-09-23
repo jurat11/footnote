@@ -13,17 +13,14 @@ from footnote.edgar import EdgarClient, resolve_cik
 from footnote.facts import CONCEPTS
 
 FIXtures_DIR = Path(__file__).resolve().parent.parent / "tests" / "fixtures"
-# AAPL (Sep FY-end), MSFT, JPM (bank, no cost of revenue), KO, NKE (May FY-end).
 TICKERS = ["AAPL", "MSFT", "JPM", "KO", "NKE"]
-MIN_END_YEAR = 2018  # trim ancient history to keep fixtures small
-
+MIN_END_YEAR = 2018
 
 def wanted_tags() -> set[str]:
     tags: set[str] = set()
     for spec in CONCEPTS.values():
         tags.update(spec.tags)
     return tags
-
 
 def trim(companyfacts: dict, keep_tags: set[str]) -> dict:
     out = {
@@ -50,7 +47,6 @@ def trim(companyfacts: dict, keep_tags: set[str]) -> dict:
             }
     return out
 
-
 def main() -> None:
     FIXtures_DIR.mkdir(parents=True, exist_ok=True)
     keep = wanted_tags()
@@ -68,7 +64,6 @@ def main() -> None:
     (FIXtures_DIR / "index.json").write_text(json.dumps(index, indent=2))
     client.close()
     print("wrote", FIXtures_DIR / "index.json")
-
 
 if __name__ == "__main__":
     main()

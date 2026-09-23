@@ -23,7 +23,6 @@ def _company_from_submissions(cik: int, ticker: str, name: str, submissions: dic
         sic_description=submissions.get("sicDescription"),
     )
 
-
 def combine_ledgers(leds: dict[str, Ledger]) -> Ledger:
     """Merge several single-company ledgers into one whose ids are ticker-namespaced.
 
@@ -53,12 +52,11 @@ def combine_ledgers(leds: dict[str, Ledger]) -> Ledger:
     return Ledger(
         company=combined_company,
         years=sorted(years, reverse=True),
-        facts=facts,  # type: ignore[arg-type]
-        ratios=ratios,  # type: ignore[arg-type]
+        facts=facts,
+        ratios=ratios,
         missing=missing,
         reports_gross_margin=reports_gm,
     )
-
 
 def build_ledger(client: EdgarClient, query: str, years: int = 5) -> Ledger:
     """Resolve ``query`` to a company and build its ledger for the last ``years`` years."""

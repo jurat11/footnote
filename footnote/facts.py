@@ -32,19 +32,16 @@ MIN_ANNUAL_DAYS = 350
 MAX_ANNUAL_DAYS = 380
 ANNUAL_FORMS = {"10-K", "10-K/A"}
 
-
 @dataclass(frozen=True)
 class ConceptSpec:
     """One canonical concept and the ordered XBRL tags it will try."""
 
     key: str
     label: str
-    kind: str  # FLOW or INSTANT
+    kind: str
     tags: tuple[str, ...]
     taxonomy: str = "us-gaap"
 
-
-# Ordered fallback map. First tag that yields a value for a period wins.
 CONCEPTS: dict[str, ConceptSpec] = {
     "revenue": ConceptSpec(
         "revenue",
@@ -150,10 +147,8 @@ CONCEPTS: dict[str, ConceptSpec] = {
     ),
 }
 
-
 def _parse(d: str) -> date:
     return date.fromisoformat(d)
-
 
 def _source_url(cik: int, accession: str) -> str:
     return config.FILING_INDEX_URL.format(
@@ -161,7 +156,6 @@ def _source_url(cik: int, accession: str) -> str:
         accession_nodash=accession.replace("-", ""),
         accession=accession,
     )
-
 
 def _units_for_tag(companyfacts: dict[str, Any], taxonomy: str, tag: str) -> dict[str, list[dict]]:
     return (
@@ -171,7 +165,6 @@ def _units_for_tag(companyfacts: dict[str, Any], taxonomy: str, tag: str) -> dic
         .get("units", {})
     )
 
-
 def _pick_unit(units: dict[str, list[dict]]) -> str | None:
     if not units:
         return None
@@ -179,13 +172,11 @@ def _pick_unit(units: dict[str, list[dict]]) -> str | None:
         return "USD"
     return next(iter(units))
 
-
 @dataclass
 class _Selection:
     entry: dict
     tag: str
     unit: str
-
 
 @dataclass
 class FactBuildResult:
@@ -194,7 +185,6 @@ class FactBuildResult:
     fiscal_years: list[int] = field(default_factory=list)
     fy_end: dict[int, date] = field(default_factory=dict)
     reports_gross_margin: bool = True
-
 
 def _discover_fiscal_year_ends(companyfacts: dict[str, Any]) -> dict[int, date]:
     """Find fiscal year-end dates from annual (350-380 day) 10-K flow facts.
@@ -228,11 +218,9 @@ def _discover_fiscal_year_ends(companyfacts: dict[str, Any]) -> dict[int, date]:
 
     fy_end: dict[int, date] = {}
     for year, counter in per_year.items():
-        # most_common breaks ties by insertion order, so sort for determinism.
         best = sorted(counter.items(), key=lambda kv: (kv[1], kv[0]))[-1][0]
         fy_end[year] = best
     return fy_end
-
 
 def _select_flow(
     companyfacts: dict[str, Any], spec: ConceptSpec, year: int, fy_end: date
@@ -258,7 +246,6 @@ def _select_flow(
             return _Selection(best, tag, unit)
     return None
 
-
 def _select_instant(
     companyfacts: dict[str, Any], spec: ConceptSpec, fy_end: date
 ) -> _Selection | None:
@@ -276,7 +263,6 @@ def _select_instant(
             best = max(candidates, key=lambda e: e.get("filed", ""))
             return _Selection(best, tag, unit)
     return None
-
 
 def build_facts(
     company: Company, companyfacts: dict[str, Any], years: int = 5

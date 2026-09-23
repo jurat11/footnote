@@ -39,7 +39,6 @@ class RateLimiter:
                 time.sleep(self._min_interval - delta)
             self._last = time.monotonic()
 
-
 class EdgarClient:
     """Fetches and caches SEC JSON. Construct once and reuse."""
 
@@ -53,7 +52,6 @@ class EdgarClient:
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.ttl = ttl_seconds
         self._limiter = RateLimiter(rate_limit)
-        # Building the client validates SEC_CONTACT_EMAIL is present.
         self._client = httpx.Client(
             headers={
                 "User-Agent": config.user_agent(),
@@ -64,7 +62,6 @@ class EdgarClient:
             follow_redirects=True,
         )
 
-    # -- cache -------------------------------------------------------------
     def _cache_path(self, url: str) -> Path:
         key = hashlib.sha256(url.encode("utf-8")).hexdigest()[:24]
         return self.cache_dir / f"{key}.json"
@@ -89,7 +86,6 @@ class EdgarClient:
             json.dump({"url": url, "body": body}, fh)
         tmp.replace(path)
 
-    # -- fetch -------------------------------------------------------------
     def get_json(self, url: str, use_cache: bool = True) -> Any:
         """GET a URL, returning parsed JSON. Uses the disk cache when fresh."""
         if use_cache:
@@ -108,14 +104,13 @@ class EdgarClient:
             self._limiter.wait()
             try:
                 resp = self._client.get(url)
-            except httpx.HTTPError as exc:  # network hiccup, retry
+            except httpx.HTTPError as exc:
                 last_exc = exc
                 time.sleep(backoff)
                 backoff *= 2
                 continue
 
             if resp.status_code in (429, 503):
-                # Respect Retry-After when present, else exponential backoff.
                 retry_after = resp.headers.get("Retry-After")
                 delay = float(retry_after) if retry_after and retry_after.isdigit() else backoff
                 time.sleep(delay)
@@ -129,7 +124,6 @@ class EdgarClient:
             raise last_exc
         raise RuntimeError(f"SEC request failed after {config.MAX_RETRIES} retries: {url}")
 
-    # -- typed endpoint helpers -------------------------------------------
     def company_tickers(self) -> dict[str, Any]:
         return self.get_json(config.TICKERS_URL)
 
@@ -153,7 +147,6 @@ class EdgarClient:
     def __exit__(self, *exc: object) -> None:
         self.close()
 
-
 def resolve_cik(client: EdgarClient, query: str) -> tuple[int, str, str]:
     """Resolve a ticker (or company-name substring) to (cik, ticker, name).
 
@@ -164,12 +157,10 @@ def resolve_cik(client: EdgarClient, query: str) -> tuple[int, str, str]:
     q = query.strip().upper()
     rows = list(data.values()) if isinstance(data, dict) else list(data)
 
-    # Exact ticker match first.
     for row in rows:
         if str(row.get("ticker", "")).upper() == q:
             return int(row["cik_str"]), str(row["ticker"]).upper(), str(row["title"])
 
-    # Fall back to a case-insensitive name substring.
     ql = query.strip().lower()
     for row in rows:
         if ql and ql in str(row.get("title", "")).lower():

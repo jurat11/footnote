@@ -15,12 +15,10 @@ PCT = "%"
 X = "x"
 USD = "USD"
 
-
 def _inputs(**facts: Fact | None) -> list[RatioInput]:
     return [
         RatioInput(role=role, fact_id=f.id) for role, f in facts.items() if f is not None
     ]
-
 
 def _missing(concept: str, label: str, unit: str, year: int, formula: str, which: str) -> Ratio:
     return Ratio(
@@ -34,7 +32,6 @@ def _missing(concept: str, label: str, unit: str, year: int, formula: str, which
         inputs=[],
         reason=f"Missing input(s): {which}.",
     )
-
 
 def _ratio(
     concept: str,
@@ -58,8 +55,6 @@ def _ratio(
         reason=reason,
     )
 
-
-# --- margins ---------------------------------------------------------------
 def gross_margin(revenue: Fact | None, cost_of_revenue: Fact | None, year: int) -> Ratio:
     label, concept = "Gross margin", "gross_margin"
     formula = "(Revenue - Cost of revenue) / Revenue"
@@ -74,7 +69,6 @@ def gross_margin(revenue: Fact | None, cost_of_revenue: Fact | None, year: int) 
     return _ratio(concept, label, PCT, year, value, formula,
                   _inputs(revenue=revenue, cost_of_revenue=cost_of_revenue))
 
-
 def operating_margin(operating_income: Fact | None, revenue: Fact | None, year: int) -> Ratio:
     label, concept = "Operating margin", "operating_margin"
     formula = "Operating income / Revenue"
@@ -88,7 +82,6 @@ def operating_margin(operating_income: Fact | None, revenue: Fact | None, year: 
     return _ratio(concept, label, PCT, year, operating_income.value / revenue.value, formula,
                   _inputs(operating_income=operating_income, revenue=revenue))
 
-
 def net_margin(net_income: Fact | None, revenue: Fact | None, year: int) -> Ratio:
     label, concept = "Net margin", "net_margin"
     formula = "Net income / Revenue"
@@ -101,8 +94,6 @@ def net_margin(net_income: Fact | None, revenue: Fact | None, year: int) -> Rati
     return _ratio(concept, label, PCT, year, net_income.value / revenue.value, formula,
                   _inputs(net_income=net_income, revenue=revenue))
 
-
-# --- growth ----------------------------------------------------------------
 def revenue_growth(revenue: Fact | None, revenue_prior: Fact | None, year: int) -> Ratio:
     label, concept = "Revenue growth", "revenue_growth"
     formula = "(Revenue_FY - Revenue_prior) / Revenue_prior"
@@ -117,8 +108,6 @@ def revenue_growth(revenue: Fact | None, revenue_prior: Fact | None, year: int) 
     return _ratio(concept, label, PCT, year, value, formula,
                   _inputs(revenue=revenue, revenue_prior=revenue_prior))
 
-
-# --- returns ---------------------------------------------------------------
 def roe(net_income: Fact | None, equity: Fact | None, year: int) -> Ratio:
     label, concept = "Return on equity", "roe"
     formula = "Net income / Stockholders' equity"
@@ -132,7 +121,6 @@ def roe(net_income: Fact | None, equity: Fact | None, year: int) -> Ratio:
     return _ratio(concept, label, PCT, year, net_income.value / equity.value, formula,
                   _inputs(net_income=net_income, stockholders_equity=equity))
 
-
 def roa(net_income: Fact | None, assets: Fact | None, year: int) -> Ratio:
     label, concept = "Return on assets", "roa"
     formula = "Net income / Total assets"
@@ -145,8 +133,6 @@ def roa(net_income: Fact | None, assets: Fact | None, year: int) -> Ratio:
     return _ratio(concept, label, PCT, year, net_income.value / assets.value, formula,
                   _inputs(net_income=net_income, total_assets=assets))
 
-
-# --- liquidity / leverage --------------------------------------------------
 def current_ratio(current_assets: Fact | None, current_liabilities: Fact | None, year: int) -> Ratio:
     label, concept = "Current ratio", "current_ratio"
     formula = "Current assets / Current liabilities"
@@ -159,7 +145,6 @@ def current_ratio(current_assets: Fact | None, current_liabilities: Fact | None,
                       reason="Current liabilities is zero.")
     return _ratio(concept, label, X, year, current_assets.value / current_liabilities.value, formula,
                   _inputs(current_assets=current_assets, current_liabilities=current_liabilities))
-
 
 def debt_to_equity(
     long_term_debt: Fact | None, current_debt: Fact | None, equity: Fact | None, year: int
@@ -185,19 +170,15 @@ def debt_to_equity(
     return _ratio(concept, label, X, year, total_debt / equity.value, formula,
                   _inputs(stockholders_equity=equity, **present), reason=reason)
 
-
-# --- cash generation -------------------------------------------------------
 def free_cash_flow(operating_cash_flow: Fact | None, capex: Fact | None, year: int) -> Ratio:
     label, concept = "Free cash flow", "free_cash_flow"
     formula = "Cash from operations - Capital expenditures"
     if operating_cash_flow is None or capex is None:
         which = ", ".join(n for n, f in [("operating_cash_flow", operating_cash_flow), ("capex", capex)] if f is None)
         return _missing(concept, label, USD, year, formula, which)
-    # capex is reported as a positive cash outflow, so we subtract it.
     value = operating_cash_flow.value - capex.value
     return _ratio(concept, label, USD, year, value, formula,
                   _inputs(operating_cash_flow=operating_cash_flow, capex=capex))
-
 
 def fcf_margin(fcf: Ratio | None, revenue: Fact | None, year: int) -> Ratio:
     label, concept = "Free cash flow margin", "fcf_margin"
@@ -212,7 +193,6 @@ def fcf_margin(fcf: Ratio | None, revenue: Fact | None, year: int) -> Ratio:
     inputs = [RatioInput(role="free_cash_flow", fact_id=fcf.id), *_inputs(revenue=revenue)]
     return _ratio(concept, label, PCT, year, fcf.value / revenue.value, formula, inputs)
 
-
 def interest_coverage(operating_income: Fact | None, interest_expense: Fact | None, year: int) -> Ratio:
     label, concept = "Interest coverage", "interest_coverage"
     formula = "Operating income / Interest expense"
@@ -226,7 +206,6 @@ def interest_coverage(operating_income: Fact | None, interest_expense: Fact | No
     return _ratio(concept, label, X, year, operating_income.value / interest_expense.value, formula,
                   _inputs(operating_income=operating_income, interest_expense=interest_expense))
 
-
 def asset_turnover(revenue: Fact | None, assets: Fact | None, year: int) -> Ratio:
     label, concept = "Asset turnover", "asset_turnover"
     formula = "Revenue / Total assets"
@@ -238,7 +217,6 @@ def asset_turnover(revenue: Fact | None, assets: Fact | None, year: int) -> Rati
                       _inputs(revenue=revenue, total_assets=assets), reason="Total assets is zero.")
     return _ratio(concept, label, X, year, revenue.value / assets.value, formula,
                   _inputs(revenue=revenue, total_assets=assets))
-
 
 def build_ratios(
     facts: dict[str, Fact], fiscal_years: list[int], reports_gross_margin: bool = True

@@ -10,7 +10,6 @@ from tests.conftest import offline_ledger
 def _year(ledger) -> int:
     return ledger.years[0]
 
-
 def test_clean_report_with_only_tokens_passes():
     led = offline_ledger("AAPL")
     y = _year(led)
@@ -22,7 +21,6 @@ def test_clean_report_with_only_tokens_passes():
     assert r.ok, r.violations
     assert r.token_count == 3
 
-
 def test_injected_number_is_caught():
     led = offline_ledger("AAPL")
     y = _year(led)
@@ -31,7 +29,6 @@ def test_injected_number_is_caught():
     assert not r.ok
     assert any(v.kind == "uncited_number" and "5.2" in v.text for v in r.violations)
 
-
 def test_bare_integer_in_prose_is_caught():
     led = offline_ledger("AAPL")
     y = _year(led)
@@ -39,7 +36,6 @@ def test_bare_integer_in_prose_is_caught():
     r = verify(text, led)
     assert not r.ok
     assert any(v.text == "42" for v in r.violations)
-
 
 def test_allowed_exceptions_do_not_trip_verifier():
     led = offline_ledger("AAPL")
@@ -51,7 +47,6 @@ def test_allowed_exceptions_do_not_trip_verifier():
     r = verify(text, led)
     assert r.ok, r.violations
 
-
 def test_unknown_token_fails():
     led = offline_ledger("AAPL")
     text = "Mystery metric: {{F:ebitda:FY2024}}."
@@ -59,7 +54,6 @@ def test_unknown_token_fails():
     assert not r.ok
     assert r.unknown_tokens == ["{{F:ebitda:FY2024}}"]
     assert any(v.kind == "unknown_token" for v in r.violations)
-
 
 def test_prior_year_for_growth_is_allowed():
     led = offline_ledger("AAPL")

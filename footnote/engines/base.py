@@ -32,14 +32,12 @@ Structure the report with these sections, as markdown headings:
 
 Be concise and specific. Anchor claims to tokens. In the final section, name the gaps (missing metrics, banks with no gross margin, and what XBRL filings simply do not reveal: guidance, segment economics, competitive position)."""
 
-
 @dataclass
 class ReportRequest:
-    mode: str  # "analyze" | "compare"
-    primary: str  # primary ticker
-    tickers: list[str]  # all tickers (>=1)
+    mode: str
+    primary: str
+    tickers: list[str]
     years: int
-
 
 class Engine(ABC):
     """A report writer. Produces token-bearing markdown; numbers stay in tokens."""

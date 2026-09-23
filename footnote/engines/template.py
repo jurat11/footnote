@@ -27,7 +27,6 @@ def _tf(led: Ledger, concept: str, year: int, ns: str | None = None) -> str | No
     prefix = f"{ns}:" if ns else ""
     return f"{{{{F:{prefix}{concept}:FY{year}}}}}"
 
-
 def _tr(led: Ledger, concept: str, year: int, require_value: bool = True, ns: str | None = None) -> str | None:
     r = led.ratios.get(f"{concept}:FY{year}")
     if r is None:
@@ -37,16 +36,13 @@ def _tr(led: Ledger, concept: str, year: int, require_value: bool = True, ns: st
     prefix = f"{ns}:" if ns else ""
     return f"{{{{R:{prefix}{concept}:FY{year}}}}}"
 
-
 def _rval(led: Ledger, concept: str, year: int) -> float | None:
     r = led.ratios.get(f"{concept}:FY{year}")
     return r.value if r else None
 
-
 def _fval(led: Ledger, concept: str, year: int) -> float | None:
     f = led.facts.get(f"{concept}:FY{year}")
     return f.value if f else None
-
 
 def _direction(cur: float | None, prev: float | None) -> str:
     if cur is None or prev is None:
@@ -60,9 +56,8 @@ def _direction(cur: float | None, prev: float | None) -> str:
         return "declined"
     return "was little changed"
 
-
 def _trend(led: Ledger, concept: str, is_ratio: bool = False) -> str:
-    years = sorted(led.years)  # oldest -> newest
+    years = sorted(led.years)
     getter = _rval if is_ratio else _fval
     vals = [getter(led, concept, y) for y in years]
     vals = [v for v in vals if v is not None]
@@ -75,12 +70,10 @@ def _trend(led: Ledger, concept: str, is_ratio: bool = False) -> str:
         return "trended lower over the period"
     return "stayed broadly flat over the period"
 
-
 class TemplateEngine(Engine):
     name = "template"
 
     def generate(self, ctx: ToolContext, request: ReportRequest) -> str:
-        # Call the tools (for logging + ledger construction) exactly like an LLM would.
         for t in request.tickers:
             resolve_company(ctx, t)
             get_financials(ctx, t)
@@ -93,12 +86,9 @@ class TemplateEngine(Engine):
         return self._compose_analysis(ctx.ledger(request.primary))
 
     def repair(self, ctx: ToolContext, request: ReportRequest, previous: str, violations: str) -> str:
-        # The template engine is deterministic and does not emit stray numbers, so a
-        # verification failure indicates a bug rather than a fixable draft. Regenerate.
         ctx.logger.log("engine_repair", name=self.name, note="regenerate (deterministic)")
         return self.generate(ctx, request)
 
-    # -- single company ----------------------------------------------------
     def _compose_analysis(self, led: Ledger) -> str:
         name = led.company.name
         industry = led.company.sic_description or "an unclassified industry"
@@ -106,7 +96,6 @@ class TemplateEngine(Engine):
         prior = y - 1
         p: list[str] = [f"# {name} ({led.company.ticker}) — SEC filing analysis", ""]
 
-        # Summary
         p.append("## Summary")
         s = [f"{name} operates in {industry}."]
         rev, ni = _tf(led, "revenue", y), _tf(led, "net_income", y)
@@ -124,7 +113,6 @@ class TemplateEngine(Engine):
         p.append(" ".join(s))
         p.append("")
 
-        # Profitability
         p.append("## Profitability")
         s = []
         if led.reports_gross_margin:
@@ -150,7 +138,6 @@ class TemplateEngine(Engine):
         p.append(" ".join(s) if s else "Profitability metrics were not available for this filer.")
         p.append("")
 
-        # Growth
         p.append("## Growth")
         s = []
         rg_tokens = [(_tr(led, "revenue_growth", yr), yr) for yr in led.years]
@@ -167,7 +154,6 @@ class TemplateEngine(Engine):
         p.append(" ".join(s))
         p.append("")
 
-        # Balance sheet strength
         p.append("## Balance sheet strength")
         s = []
         cr = _tr(led, "current_ratio", y)
@@ -188,7 +174,6 @@ class TemplateEngine(Engine):
         p.append(" ".join(s) if s else "Balance-sheet detail was limited for this filer.")
         p.append("")
 
-        # Cash generation
         p.append("## Cash generation")
         s = []
         ocf, capex, fcf = _tf(led, "operating_cash_flow", y), _tf(led, "capex", y), _tr(led, "free_cash_flow", y)
@@ -211,7 +196,6 @@ class TemplateEngine(Engine):
         p.append(" ".join(s) if s else "Cash-flow detail was limited for this filer.")
         p.append("")
 
-        # What the data cannot tell you
         p.append("## What the data cannot tell you")
         s = self._gaps_prose(led)
         p.append(" ".join(s))
@@ -236,7 +220,6 @@ class TemplateEngine(Engine):
         )
         return s
 
-    # -- comparison --------------------------------------------------------
     def _compose_comparison(self, ctx: ToolContext, request: ReportRequest) -> str:
         tickers = [t.upper() for t in request.tickers]
         leds = {t: ctx.ledger(t) for t in tickers}

@@ -16,13 +16,9 @@ from dataclasses import dataclass, field
 from .formatting import format_value
 from .models import Ledger
 
-# A token is {{F:revenue:FY2024}} for a single company, or {{F:AAPL:revenue:FY2024}}
-# in a multi-company comparison where the ticker namespaces the ledger id. The ticker is
-# uppercase and the concept lowercase, so the two forms never collide.
 TOKEN_RE = re.compile(
     r"\{\{(?P<kind>[FR]):(?:(?P<ticker>[A-Z][A-Z0-9.\-]*):)?(?P<concept>[a-z_]+):FY(?P<year>\d{4})\}\}"
 )
-
 
 def token_id_from_match(m: re.Match) -> str:
     """Reconstruct the ledger id (optionally ticker-namespaced) from a token match."""
@@ -30,20 +26,17 @@ def token_id_from_match(m: re.Match) -> str:
     ticker = m.group("ticker")
     return f"{ticker}:{base}" if ticker else base
 
-
 def token_text_from_match(m: re.Match) -> str:
     return m.group(0)
-
 
 @dataclass
 class Footnote:
     number: int
     token_id: str
-    kind: str  # "F" or "R"
+    kind: str
     value_text: str
     description: str
     urls: list[str] = field(default_factory=list)
-
 
 @dataclass
 class RenderResult:
@@ -51,7 +44,6 @@ class RenderResult:
     html: str
     footnotes: list[Footnote]
     unknown_tokens: list[str] = field(default_factory=list)
-
 
 def _dedupe(urls: list[str]) -> list[str]:
     """Order-preserving de-duplication; several inputs often share one filing."""
@@ -63,7 +55,6 @@ def _dedupe(urls: list[str]) -> list[str]:
             out.append(u)
     return out
 
-
 def _fact_description(ledger: Ledger, fact_id: str) -> tuple[str, list[str]]:
     f = ledger.facts[fact_id]
     desc = (
@@ -71,7 +62,6 @@ def _fact_description(ledger: Ledger, fact_id: str) -> tuple[str, list[str]]:
         f"filed {f.filed}. XBRL tag us-gaap:{f.xbrl_tag}."
     )
     return desc, [f.source_url]
-
 
 def _ratio_description(ledger: Ledger, ratio_id: str) -> tuple[str, list[str]]:
     r = ledger.ratios[ratio_id]
@@ -93,7 +83,6 @@ def _ratio_description(ledger: Ledger, ratio_id: str) -> tuple[str, list[str]]:
         parts.append("Inputs: " + "; ".join(input_bits) + ".")
     return " ".join(parts), urls
 
-
 def _resolve(ledger: Ledger, kind: str, token_id: str) -> tuple[str, str, list[str]] | None:
     """Return (value_text, description, urls) or None if the token id is unknown."""
     if kind == "F":
@@ -102,23 +91,20 @@ def _resolve(ledger: Ledger, kind: str, token_id: str) -> tuple[str, str, list[s
             return None
         desc, urls = _fact_description(ledger, token_id)
         return format_value(f.value, f.unit), desc, urls
-    else:  # R
+    else:
         r = ledger.ratios.get(token_id)
         if r is None:
             return None
         desc, urls = _ratio_description(ledger, token_id)
         return format_value(r.value, r.unit), desc, urls
 
-
 def render(text: str, ledger: Ledger) -> RenderResult:
     """Replace tokens in ``text`` and build the footnote apparatus."""
-    numbers: dict[str, int] = {}  # token_id -> footnote number
+    numbers: dict[str, int] = {}
     footnotes: list[Footnote] = []
     unknown: list[str] = []
 
-    # Markers we drop into the prose while we convert to markdown/html, so token
-    # values do not get mangled by the tiny markdown converter.
-    placeholders: dict[str, tuple[str, int]] = {}  # placeholder -> (value_text, number)
+    placeholders: dict[str, tuple[str, int]] = {}
 
     def repl(m: re.Match) -> str:
         kind = m.group("kind")
@@ -139,7 +125,6 @@ def render(text: str, ledger: Ledger) -> RenderResult:
 
     prose_with_ph = TOKEN_RE.sub(repl, text)
 
-    # --- markdown ---------------------------------------------------------
     md_body = prose_with_ph
     for ph, (value_text, n) in placeholders.items():
         md_body = md_body.replace(ph, f"{value_text} [{n}]")
@@ -151,19 +136,15 @@ def render(text: str, ledger: Ledger) -> RenderResult:
             extra = " Additional filings: " + ", ".join(fn.urls[1:])
         md += f"{fn.number}. **{fn.value_text}** — {fn.description}{link}{extra}\n"
 
-    # --- html -------------------------------------------------------------
     html_out = _to_html(prose_with_ph, placeholders, footnotes, ledger.company.name)
 
     return RenderResult(markdown=md, html=html_out, footnotes=footnotes, unknown_tokens=unknown)
 
-
-# --- a deliberately tiny markdown -> html converter ------------------------
 def _inline(text: str) -> str:
     text = html.escape(text)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", text)
     return text
-
 
 def _to_html(prose_with_ph: str, placeholders, footnotes, company_name: str) -> str:
     lines = prose_with_ph.split("\n")
@@ -201,7 +182,6 @@ def _to_html(prose_with_ph: str, placeholders, footnotes, company_name: str) -> 
     close_list()
     body = "\n".join(out)
 
-    # Swap placeholders for linked superscript markers.
     for ph, (value_text, n) in placeholders.items():
         marker = (
             f'{html.escape(value_text)}'
@@ -209,7 +189,6 @@ def _to_html(prose_with_ph: str, placeholders, footnotes, company_name: str) -> 
         )
         body = body.replace(ph, marker)
 
-    # Footnotes section.
     fn_items = []
     for fn in footnotes:
         links = " ".join(
@@ -228,7 +207,6 @@ def _to_html(prose_with_ph: str, placeholders, footnotes, company_name: str) -> 
         body=body,
         sources=sources,
     )
-
 
 _HTML_TEMPLATE = """<!doctype html>
 <html lang="en">

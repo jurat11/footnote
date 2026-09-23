@@ -32,14 +32,11 @@ class RunOutput:
     tool_calls: int
     engine: str
 
-
 class VerificationFailed(RuntimeError):
     """Raised when a report still contains uncited numbers after all retries."""
 
-
 class NoDataError(RuntimeError):
     """Raised when a company has no usable annual XBRL facts to analyze."""
-
 
 def _run(request: ReportRequest, out_dir: str, engine_name: str) -> RunOutput:
     logger = RunLogger()
@@ -50,7 +47,6 @@ def _run(request: ReportRequest, out_dir: str, engine_name: str) -> RunOutput:
     with EdgarClient() as client:
         ctx = ToolContext(client, years=request.years, logger=logger)
 
-        # Guard the zero-fact case (e.g. a ticker that maps to a shell/holding entity).
         for t in request.tickers:
             led = ctx.ledger(t)
             if not led.facts:
@@ -62,8 +58,6 @@ def _run(request: ReportRequest, out_dir: str, engine_name: str) -> RunOutput:
                 )
 
         text = engine.generate(ctx, request)
-        # Single-company reports verify/render against that company's ledger; comparisons
-        # against a combined ledger whose ids are ticker-namespaced.
         if request.mode == "compare":
             primary = combine_ledgers({t.upper(): ctx.ledger(t) for t in request.tickers})
         else:
@@ -101,7 +95,6 @@ def _run(request: ReportRequest, out_dir: str, engine_name: str) -> RunOutput:
             engine=engine.name,
         )
 
-
 def engine_tool_call_count(logger: RunLogger) -> int:
     try:
         n = 0
@@ -111,7 +104,6 @@ def engine_tool_call_count(logger: RunLogger) -> int:
         return n
     except OSError:
         return 0
-
 
 def _write_bundle(
     request: ReportRequest, ledger: Ledger, rendered, verification, out_dir: str
@@ -126,7 +118,6 @@ def _write_bundle(
     (dest / "verification.json").write_text(
         json.dumps(verification.to_dict(), indent=2), encoding="utf-8"
     )
-    # Footnote -> ledger id map, so the app can link a footnote to its ledger row.
     footnotes = [
         {"number": fn.number, "token_id": fn.token_id, "kind": fn.kind, "value": fn.value_text}
         for fn in rendered.footnotes
@@ -134,9 +125,7 @@ def _write_bundle(
     (dest / "footnotes.json").write_text(json.dumps(footnotes, indent=2), encoding="utf-8")
     return dest
 
-
 def run_analysis(query: str, years: int = 5, out_dir: str = "reports/", engine: str | None = None) -> RunOutput:
-    # Resolve the ticker up front so the output folder is named correctly.
     with EdgarClient() as client:
         led = build_ledger(client, query, years=years)
     ticker = led.company.ticker
@@ -145,7 +134,6 @@ def run_analysis(query: str, years: int = 5, out_dir: str = "reports/", engine: 
     _print_summary(out)
     return out
 
-
 def run_comparison(tickers: list[str], years: int = 5, out_dir: str = "reports/", engine: str | None = None) -> RunOutput:
     with EdgarClient() as client:
         resolved = [build_ledger(client, t, years=years).company.ticker for t in tickers]
@@ -153,7 +141,6 @@ def run_comparison(tickers: list[str], years: int = 5, out_dir: str = "reports/"
     out = _run(request, out_dir, engine or config.engine_name())
     _print_summary(out)
     return out
-
 
 def _print_summary(out: RunOutput) -> None:
     print(f"\nEngine: {out.engine}")

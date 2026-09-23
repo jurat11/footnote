@@ -23,7 +23,6 @@ from footnote.models import Fact
 
 RESULTS = Path(__file__).resolve().parent.parent / "eval" / "results.md"
 
-
 def _match(fact: Fact, entries: list[dict]) -> str:
     """Return the outcome of checking a fact against companyconcept entries.
 
@@ -42,7 +41,6 @@ def _match(fact: Fact, entries: list[dict]) -> str:
     ]
     if exact:
         return "matched" if float(exact[0]["val"]) == fact.value else "mismatched"
-    # Fall back to period-only (a restated value cited to a later filing).
     period = [
         e
         for e in entries
@@ -52,13 +50,11 @@ def _match(fact: Fact, entries: list[dict]) -> str:
         return "matched" if any(float(e["val"]) == fact.value for e in period) else "mismatched"
     return "not_found"
 
-
 def crosscheck_ticker(client: EdgarClient, ticker: str) -> dict:
     led = build_ledger(client, ticker, years=5)
     cik10 = led.company.cik10
     counts = {"checked": 0, "matched": 0, "mismatched": 0, "not_found": 0, "unavailable": 0}
     problems: list[str] = []
-    # Cache concept fetches per tag.
     concept_cache: dict[str, list[dict]] = {}
     for fact in led.facts.values():
         counts["checked"] += 1
@@ -67,16 +63,14 @@ def crosscheck_ticker(client: EdgarClient, ticker: str) -> dict:
                 data = client.company_concept(cik10, "us-gaap", fact.xbrl_tag)
                 units = data.get("units", {})
                 concept_cache[fact.xbrl_tag] = units.get(fact.unit, next(iter(units.values()), []))
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 concept_cache[fact.xbrl_tag] = []
                 problems.append(f"{fact.id}: concept fetch failed ({exc})")
         outcome = _match(fact, concept_cache[fact.xbrl_tag])
         counts[outcome] += 1
-        # 'unavailable' is a gap in the checker's endpoint, not a ledger defect.
         if outcome in ("mismatched", "not_found"):
             problems.append(f"{fact.id} [{fact.xbrl_tag}]: {outcome} (value {fact.value})")
     return {"ticker": led.company.ticker, "counts": counts, "problems": problems}
-
 
 def main() -> None:
     tickers = [t.upper() for t in sys.argv[1:]] or EVAL_TICKERS
@@ -88,7 +82,7 @@ def main() -> None:
         for t in tickers:
             try:
                 res = crosscheck_ticker(client, t)
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 rows.append((t, "ERROR", "-", "-", "-", "-"))
                 all_problems.append(f"{t}: {exc}")
                 continue
@@ -120,7 +114,6 @@ def main() -> None:
         lines += ["No discrepancies: every fact matched the independent path.", ""]
     RESULTS.write_text("\n".join(lines))
     print("\nWrote", RESULTS)
-
 
 if __name__ == "__main__":
     main()

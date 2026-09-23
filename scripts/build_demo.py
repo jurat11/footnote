@@ -17,7 +17,6 @@ from footnote.agent import run_analysis
 DEMO_DIR = Path(__file__).resolve().parent.parent / "demo"
 DEMO_TICKERS = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "JPM", "KO", "JNJ", "WMT", "NKE"]
 
-
 def main() -> None:
     DEMO_DIR.mkdir(parents=True, exist_ok=True)
     for t in DEMO_TICKERS:
@@ -25,7 +24,6 @@ def main() -> None:
         print(f"demo: {t} -> {out.out_dir} (verified {out.verification.ok})")
     (DEMO_DIR / "index.json").write_text(__import__("json").dumps(DEMO_TICKERS, indent=2))
     print("wrote", DEMO_DIR / "index.json")
-
 
 if __name__ == "__main__":
     main()
