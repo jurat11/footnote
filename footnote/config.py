@@ -15,6 +15,32 @@ CACHE_DIR = PROJECT_ROOT / ".cache" / "edgar"
 RUNS_DIR = PROJECT_ROOT / "runs"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
+
+def _load_dotenv() -> None:
+    """Load KEY=VALUE lines from a project-root .env into the environment.
+
+    Kept dependency-free and non-destructive: a variable already set in the real
+    environment always wins, so .env is only a convenience for local runs.
+    """
+    env_path = PROJECT_ROOT / ".env"
+    if not env_path.exists():
+        return
+    try:
+        for raw in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = value
+    except OSError:
+        pass
+
+
+_load_dotenv()
+
 # --- SEC endpoints ---------------------------------------------------------
 TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik10}.json"
