@@ -11,19 +11,18 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v6
 
-      - name: Set up Python
-        run: uv python install 3.12
-
-      - name: Install project
-        run: uv pip install --system -e '.[dev]'
+      - name: Create environment and install project
+        run: |
+          uv venv --python 3.12
+          uv pip install -e '.[dev]'
 
       - name: Lint
-        run: ruff check .
+        run: uv run ruff check .
 
       - name: Tests
-        run: pytest
+        run: uv run pytest
 
       - name: Verifier tests (the guarantee)
-        run: pytest tests/test_verify.py tests/test_render.py tests/test_engine_template.py -q
+        run: uv run pytest tests/test_verify.py tests/test_render.py tests/test_engine_template.py -q
