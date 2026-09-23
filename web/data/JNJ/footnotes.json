@@ -1,0 +1,98 @@
+[
+  {
+    "number": 1,
+    "token_id": "revenue:FY2025",
+    "kind": "F",
+    "value": "$94.2B"
+  },
+  {
+    "number": 2,
+    "token_id": "net_income:FY2025",
+    "kind": "F",
+    "value": "$26.8B"
+  },
+  {
+    "number": 3,
+    "token_id": "net_margin:FY2025",
+    "kind": "R",
+    "value": "28.5%"
+  },
+  {
+    "number": 4,
+    "token_id": "revenue_growth:FY2025",
+    "kind": "R",
+    "value": "6.0%"
+  },
+  {
+    "number": 5,
+    "token_id": "gross_margin:FY2025",
+    "kind": "R",
+    "value": "67.9%"
+  },
+  {
+    "number": 6,
+    "token_id": "roe:FY2025",
+    "kind": "R",
+    "value": "32.9%"
+  },
+  {
+    "number": 7,
+    "token_id": "roa:FY2025",
+    "kind": "R",
+    "value": "13.5%"
+  },
+  {
+    "number": 8,
+    "token_id": "revenue:FY2021",
+    "kind": "F",
+    "value": "$82.6B"
+  },
+  {
+    "number": 9,
+    "token_id": "current_ratio:FY2025",
+    "kind": "R",
+    "value": "1.03x"
+  },
+  {
+    "number": 10,
+    "token_id": "debt_to_equity:FY2025",
+    "kind": "R",
+    "value": "0.51x"
+  },
+  {
+    "number": 11,
+    "token_id": "total_assets:FY2025",
+    "kind": "F",
+    "value": "$199.2B"
+  },
+  {
+    "number": 12,
+    "token_id": "stockholders_equity:FY2025",
+    "kind": "F",
+    "value": "$81.5B"
+  },
+  {
+    "number": 13,
+    "token_id": "operating_cash_flow:FY2025",
+    "kind": "F",
+    "value": "$24.5B"
+  },
+  {
+    "number": 14,
+    "token_id": "capex:FY2025",
+    "kind": "F",
+    "value": "$4.8B"
+  },
+  {
+    "number": 15,
+    "token_id": "free_cash_flow:FY2025",
+    "kind": "R",
+    "value": "$19.7B"
+  },
+  {
+    "number": 16,
+    "token_id": "fcf_margin:FY2025",
+    "kind": "R",
+    "value": "20.9%"
+  }
+]

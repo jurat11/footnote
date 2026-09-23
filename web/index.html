@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Footnote — cited SEC filing analysis</title>
+  <meta name="description" content="Financial analysis where every number is cited to the exact SEC filing and machine-verified.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">▉</span>
+      <div>
+        <h1>Footnote</h1>
+        <p>Every number is cited to the exact SEC filing, and machine-verified.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label for="ticker">Company</label>
+      <select id="ticker" aria-label="Choose a company"></select>
+      <span id="badge" class="badge"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel report-panel">
+      <div class="panel-head">
+        <h2>Report</h2>
+        <span class="hint">Click any <span class="fnchip">[n]</span> to highlight its source in the ledger.</span>
+      </div>
+      <article id="report" class="report">Loading…</article>
+    </section>
+
+    <section class="panel ledger-panel">
+      <div class="panel-head"><h2>Ledger</h2><span class="hint">The only place numbers live.</span></div>
+      <div class="table-wrap">
+        <table id="ledger">
+          <thead>
+            <tr><th>Metric</th><th>FY</th><th>Value</th><th>Source</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Deterministic ledger built from SEC EDGAR XBRL. The writer never emits a number.</span>
+    <a href="https://github.com/jurat11/footnote" target="_blank" rel="noopener">Source on GitHub</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

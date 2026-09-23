@@ -1,0 +1,99 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0f1115;
+  --panel: #171a21;
+  --panel-2: #1e222b;
+  --text: #e6e8ec;
+  --muted: #9aa3b2;
+  --line: #2a2f3a;
+  --accent: #4f8cff;
+  --hl: #ffd54a;
+  --ok: #37c871;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --panel-2: #f0f2f5; --text: #12151b;
+    --muted: #5a6472; --line: #e2e6ec; --accent: #2b6cff; --hl: #ffe08a; --ok: #189a4e;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 14px 20px; border-bottom: 1px solid var(--line);
+  background: var(--panel); position: sticky; top: 0; z-index: 5; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { color: var(--accent); font-size: 22px; }
+.brand h1 { margin: 0; font-size: 18px; letter-spacing: .2px; }
+.brand p { margin: 0; color: var(--muted); font-size: 12.5px; }
+.controls { display: flex; align-items: center; gap: 10px; }
+.controls label { color: var(--muted); font-size: 13px; }
+#ticker {
+  background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 10px; font-size: 14px; min-width: 120px;
+}
+.badge {
+  font-size: 12px; padding: 4px 9px; border-radius: 999px;
+  background: color-mix(in srgb, var(--ok) 18%, transparent);
+  color: var(--ok); border: 1px solid color-mix(in srgb, var(--ok) 40%, transparent);
+  white-space: nowrap;
+}
+
+main {
+  display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px;
+  padding: 16px 20px; max-width: 1280px; margin: 0 auto; align-items: start;
+}
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; min-width: 0;
+}
+.panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.panel-head h2 { margin: 0; font-size: 15px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+.hint { color: var(--muted); font-size: 12px; }
+.fnchip { color: var(--accent); font-weight: 600; }
+
+.ledger-panel { position: sticky; top: 74px; }
+.report { min-height: 200px; }
+.report h1 { font-size: 24px; margin: 6px 0 14px; }
+.report h2 { font-size: 17px; margin: 22px 0 6px; border-top: 1px solid var(--line); padding-top: 14px; }
+.report p { margin: 8px 0; }
+.report hr { border: none; border-top: 1px solid var(--line); margin: 20px 0; }
+.report ol, .report ul { padding-left: 20px; }
+.report a { color: var(--accent); word-break: break-all; }
+.report code { background: var(--panel-2); padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+
+.fn {
+  cursor: pointer; color: var(--accent); font-weight: 600; font-size: .82em;
+  vertical-align: super; padding: 0 1px; user-select: none;
+}
+.fn:hover { text-decoration: underline; }
+.fn.active { background: var(--hl); color: #000; border-radius: 4px; }
+
+.table-wrap { max-height: 70vh; overflow: auto; border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  position: sticky; top: 0; background: var(--panel-2); text-align: left;
+  padding: 8px 10px; color: var(--muted); border-bottom: 1px solid var(--line); z-index: 1;
+}
+tbody td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr.ratio td:first-child { color: var(--muted); }
+tbody tr.hl td { background: var(--hl); color: #000; }
+tbody tr.hl td a { color: #14459c; }
+td.val { font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.src { color: var(--muted); font-size: 12px; }
+td.src a { color: var(--accent); }
+
+.foot {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 14px 20px; color: var(--muted); font-size: 12.5px;
+  border-top: 1px solid var(--line); max-width: 1280px; margin: 0 auto;
+}
+.foot a { color: var(--accent); }
