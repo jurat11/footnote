@@ -109,9 +109,13 @@ def analyze(
     engine: str = typer.Option(None, "--engine", help="template | ollama | anthropic"),
 ) -> None:
     """Write a full cited report (report.md/html, ledger.json, verification.json)."""
-    from .agent import run_analysis
+    from .agent import NoDataError, run_analysis
 
-    run_analysis(query, years=years, out_dir=out, engine=engine or config.engine_name())
+    try:
+        run_analysis(query, years=years, out_dir=out, engine=engine or config.engine_name())
+    except (NoDataError, LookupError) as exc:
+        typer.secho(f"Cannot analyze {query}: {exc}", fg=typer.colors.RED)
+        raise typer.Exit(code=1) from exc
 
 
 @app.command()
@@ -122,9 +126,13 @@ def compare(
     engine: str = typer.Option(None, "--engine"),
 ) -> None:
     """Compare several companies on aligned, cited metrics."""
-    from .agent import run_comparison
+    from .agent import NoDataError, run_comparison
 
-    run_comparison(tickers, years=years, out_dir=out, engine=engine or config.engine_name())
+    try:
+        run_comparison(tickers, years=years, out_dir=out, engine=engine or config.engine_name())
+    except (NoDataError, LookupError) as exc:
+        typer.secho(f"Cannot compare: {exc}", fg=typer.colors.RED)
+        raise typer.Exit(code=1) from exc
 
 
 if __name__ == "__main__":

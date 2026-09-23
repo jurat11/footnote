@@ -48,3 +48,21 @@ the citation simply points at the most recent filing that carried it.
 `interest_coverage = operating_income / interest_expense`. When interest expense is zero
 or not reported, the ratio is `None` with a reason rather than a divide-by-zero or an
 infinite value.
+
+## XOM maps to a holding-company CIK with no XBRL; swapped for COP in the eval
+
+As of 2026, the ticker `XOM` in `company_tickers.json` resolves to "ExxonMobil Holdings
+Corp" (CIK 2115436), a shell/holding entity with no annual US-GAAP XBRL facts. The
+operating history lives under the legacy CIK. Rather than hard-code CIK overrides
+(fragile and easy to get wrong), the agent raises a clear `NoDataError` for any ticker
+that yields zero facts, and the eval universe uses `COP` (ConocoPhillips) for energy
+coverage. This is documented as a known limitation.
+
+## companyconcept coverage gaps are reported, not treated as failures
+
+The crosscheck re-fetches each fact through the `companyconcept` endpoint. For some
+filers (e.g. KO's `Revenues`) that endpoint returns no data at all even though
+`companyfacts` reports the value, because the concept is only presented within
+dimensional contexts. The crosscheck classifies these as `unavailable` (a gap in the
+independent checker), separate from `mismatched` / `not_found`, so a checker limitation
+is never mistaken for a ledger error. Every fact that the endpoint *can* check matches.

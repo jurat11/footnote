@@ -37,6 +37,10 @@ class VerificationFailed(RuntimeError):
     """Raised when a report still contains uncited numbers after all retries."""
 
 
+class NoDataError(RuntimeError):
+    """Raised when a company has no usable annual XBRL facts to analyze."""
+
+
 def _run(request: ReportRequest, out_dir: str, engine_name: str) -> RunOutput:
     logger = RunLogger()
     logger.log("run_start", mode=request.mode, tickers=request.tickers, years=request.years,
@@ -45,6 +49,17 @@ def _run(request: ReportRequest, out_dir: str, engine_name: str) -> RunOutput:
 
     with EdgarClient() as client:
         ctx = ToolContext(client, years=request.years, logger=logger)
+
+        # Guard the zero-fact case (e.g. a ticker that maps to a shell/holding entity).
+        for t in request.tickers:
+            led = ctx.ledger(t)
+            if not led.facts:
+                logger.log("no_data", ticker=t)
+                raise NoDataError(
+                    f"No usable annual XBRL facts found for {t} "
+                    f"(CIK {led.company.cik}). The ticker may map to a holding or shell "
+                    f"entity, or the filer does not report US-GAAP 10-K XBRL."
+                )
 
         text = engine.generate(ctx, request)
         # Single-company reports verify/render against that company's ledger; comparisons

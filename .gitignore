@@ -9,5 +9,8 @@ reports/
 .pytest_cache/
 .ruff_cache/
 .DS_Store
-# keep committed demo reports and eval outputs
+# eval writes per-ticker report bundles here; keep the markdown summaries, not the bundles
+eval/reports/
+# keep committed eval summaries
 !eval/results.md
+!eval/eval.md
