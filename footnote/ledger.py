@@ -24,6 +24,42 @@ def _company_from_submissions(cik: int, ticker: str, name: str, submissions: dic
     )
 
 
+def combine_ledgers(leds: dict[str, Ledger]) -> Ledger:
+    """Merge several single-company ledgers into one whose ids are ticker-namespaced.
+
+    Used only for rendering and verifying a comparison report, where a bare
+    ``revenue:FY2025`` would be ambiguous between companies. Each fact/ratio is copied
+    with a ``TICKER:`` prefix on its id (and its label) so tokens resolve unambiguously.
+    """
+    facts: dict[str, object] = {}
+    ratios: dict[str, object] = {}
+    years: set[int] = set()
+    missing = []
+    reports_gm = True
+    tickers = list(leds.keys())
+    for ticker, led in leds.items():
+        years.update(led.years)
+        reports_gm = reports_gm and led.reports_gross_margin
+        missing.extend(led.missing)
+        for fid, f in led.facts.items():
+            facts[f"{ticker}:{fid}"] = f.model_copy(update={"id": f"{ticker}:{fid}", "label": f"{ticker} {f.label}"})
+        for rid, r in led.ratios.items():
+            new_inputs = [i.model_copy(update={"fact_id": f"{ticker}:{i.fact_id}"}) for i in r.inputs]
+            ratios[f"{ticker}:{rid}"] = r.model_copy(
+                update={"id": f"{ticker}:{rid}", "label": f"{ticker} {r.label}", "inputs": new_inputs}
+            )
+    primary = leds[tickers[0]].company
+    combined_company = primary.model_copy(update={"name": "Comparison: " + ", ".join(tickers)})
+    return Ledger(
+        company=combined_company,
+        years=sorted(years, reverse=True),
+        facts=facts,  # type: ignore[arg-type]
+        ratios=ratios,  # type: ignore[arg-type]
+        missing=missing,
+        reports_gross_margin=reports_gm,
+    )
+
+
 def build_ledger(client: EdgarClient, query: str, years: int = 5) -> Ledger:
     """Resolve ``query`` to a company and build its ledger for the last ``years`` years."""
     cik, ticker, name = resolve_cik(client, query)

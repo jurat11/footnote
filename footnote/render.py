@@ -16,7 +16,23 @@ from dataclasses import dataclass, field
 from .formatting import format_value
 from .models import Ledger
 
-TOKEN_RE = re.compile(r"\{\{(?P<kind>[FR]):(?P<concept>[a-z_]+):FY(?P<year>\d{4})\}\}")
+# A token is {{F:revenue:FY2024}} for a single company, or {{F:AAPL:revenue:FY2024}}
+# in a multi-company comparison where the ticker namespaces the ledger id. The ticker is
+# uppercase and the concept lowercase, so the two forms never collide.
+TOKEN_RE = re.compile(
+    r"\{\{(?P<kind>[FR]):(?:(?P<ticker>[A-Z][A-Z0-9.\-]*):)?(?P<concept>[a-z_]+):FY(?P<year>\d{4})\}\}"
+)
+
+
+def token_id_from_match(m: re.Match) -> str:
+    """Reconstruct the ledger id (optionally ticker-namespaced) from a token match."""
+    base = f"{m.group('concept')}:FY{m.group('year')}"
+    ticker = m.group("ticker")
+    return f"{ticker}:{base}" if ticker else base
+
+
+def token_text_from_match(m: re.Match) -> str:
+    return m.group(0)
 
 
 @dataclass
@@ -35,6 +51,17 @@ class RenderResult:
     html: str
     footnotes: list[Footnote]
     unknown_tokens: list[str] = field(default_factory=list)
+
+
+def _dedupe(urls: list[str]) -> list[str]:
+    """Order-preserving de-duplication; several inputs often share one filing."""
+    seen: set[str] = set()
+    out: list[str] = []
+    for u in urls:
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
 
 
 def _fact_description(ledger: Ledger, fact_id: str) -> tuple[str, list[str]]:
@@ -95,16 +122,16 @@ def render(text: str, ledger: Ledger) -> RenderResult:
 
     def repl(m: re.Match) -> str:
         kind = m.group("kind")
-        token_id = f"{m.group('concept')}:FY{m.group('year')}"
+        token_id = token_id_from_match(m)
         resolved = _resolve(ledger, kind, token_id)
         if resolved is None:
-            unknown.append(f"{{{{{kind}:{token_id}}}}}")
+            unknown.append(m.group(0))
             return f"[UNKNOWN:{token_id}]"
         value_text, desc, urls = resolved
         if token_id not in numbers:
             n = len(numbers) + 1
             numbers[token_id] = n
-            footnotes.append(Footnote(n, token_id, kind, value_text, desc, urls))
+            footnotes.append(Footnote(n, token_id, kind, value_text, desc, _dedupe(urls)))
         n = numbers[token_id]
         ph = f"\x00PH{n}\x00"
         placeholders[ph] = (value_text, n)

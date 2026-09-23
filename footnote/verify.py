@@ -12,7 +12,7 @@ import re
 from dataclasses import dataclass, field
 
 from .models import Ledger
-from .render import TOKEN_RE
+from .render import TOKEN_RE, token_id_from_match
 
 # A run of digits, optionally with thousands separators / decimals / a trailing %.
 NUMBER_RE = re.compile(r"\d[\d,]*(?:\.\d+)?%?")
@@ -62,9 +62,9 @@ def verify(text: str, ledger: Ledger) -> VerificationResult:
     valid_ids = ledger.token_ids()
     for m in TOKEN_RE.finditer(text):
         result.token_count += 1
-        token_id = f"{m.group('concept')}:FY{m.group('year')}"
+        token_id = token_id_from_match(m)
         if token_id not in valid_ids:
-            tok = f"{{{{{m.group('kind')}:{token_id}}}}}"
+            tok = m.group(0)
             result.unknown_tokens.append(tok)
             result.violations.append(
                 Violation("unknown_token", tok, _context(text, m.start(), m.end()))
