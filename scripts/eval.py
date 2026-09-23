@@ -81,10 +81,23 @@ def main() -> None:
         )
     total_uncited = sum(r["uncited"] for r in rows if isinstance(r["uncited"], int))
     passed = sum(1 for r in rows if r["ok"])
-    lines += ["", f"**{passed}/{len(rows)} reports passed verification. "
-                  f"Total uncited numbers: {total_uncited} (target 0).**", ""]
-    (OUT / "eval.md").write_text("\n".join(lines))
-    print("\nWrote", OUT / "eval.md")
+    first_draft = sum(1 for r in rows if r["ok"] and r["retries"] == 0)
+    retried = sum(1 for r in rows if isinstance(r["retries"], int) and r["retries"] > 0)
+    total_in = sum(r["tokens_in"] for r in rows if isinstance(r["tokens_in"], int))
+    total_out = sum(r["tokens_out"] for r in rows if isinstance(r["tokens_out"], int))
+    lines += [
+        "",
+        f"**{passed}/{len(rows)} reports passed verification.**",
+        "",
+        f"- Passed on the first draft: {first_draft}/{len(rows)}",
+        f"- Needed at least one verifier repair: {retried}/{len(rows)}",
+        f"- Uncited numbers after repair: {total_uncited} (target 0)",
+        f"- Model tokens used: {total_in:,} in / {total_out:,} out",
+        "",
+    ]
+    out_path = OUT / (f"eval_{engine}.md" if engine != "template" else "eval.md")
+    out_path.write_text("\n".join(lines))
+    print("\nWrote", out_path)
 
 if __name__ == "__main__":
     main()

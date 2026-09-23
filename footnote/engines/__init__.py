@@ -23,6 +23,16 @@ def get_engine(name: str) -> Engine:
         from .template import TemplateEngine
 
         return TemplateEngine()
+    if name == "gemini":
+        from .gemini import GeminiEngine, gemini_available
+
+        if gemini_available():
+            return GeminiEngine()
+        print("[footnote] gemini engine unavailable (no GEMINI_API_KEY); "
+              "falling back to the free template engine.")
+        from .template import TemplateEngine
+
+        return TemplateEngine()
     if name == "ollama":
         from .ollama import OllamaEngine, ollama_available
 

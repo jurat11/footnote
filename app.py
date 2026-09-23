@@ -236,9 +236,11 @@ else:
         ticker = st.text_input("Ticker", value="AAPL").strip().upper()
         years = st.slider("Fiscal years", 2, 6, 5)
         engine_options = ["template"]
+        if os.environ.get("GEMINI_API_KEY") or secret("GEMINI_API_KEY"):
+            engine_options.append("gemini")
         if os.environ.get("ANTHROPIC_API_KEY") or secret("ANTHROPIC_API_KEY"):
             engine_options.append("anthropic")
-        engine = st.selectbox("Writer engine", engine_options)
+        engine = st.selectbox("Writer engine", engine_options, index=len(engine_options) - 1)
         runs = st.session_state.get("live_runs", 0)
         st.caption(f"Live runs this session: {runs}/{LIVE_RUN_CAP}")
         go = st.button("Analyze", type="primary", disabled=runs >= LIVE_RUN_CAP, use_container_width=True)
@@ -247,6 +249,8 @@ else:
             os.environ["SEC_CONTACT_EMAIL"] = secret("SEC_CONTACT_EMAIL") or DEFAULT_SEC_CONTACT
         if secret("ANTHROPIC_API_KEY") and not os.environ.get("ANTHROPIC_API_KEY"):
             os.environ["ANTHROPIC_API_KEY"] = secret("ANTHROPIC_API_KEY")
+        if secret("GEMINI_API_KEY") and not os.environ.get("GEMINI_API_KEY"):
+            os.environ["GEMINI_API_KEY"] = secret("GEMINI_API_KEY")
         try:
             from footnote.agent import NoDataError, run_analysis
 

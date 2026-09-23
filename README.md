@@ -3,8 +3,10 @@
 Footnote analyzes a public company from its SEC filings and writes an analysis where
 every number carries a citation to the exact filing it came from.
 
-**Live demo:** https://footnote-jjuratov50-3243s-projects.vercel.app
-(a static deploy of ten pre-computed, verified reports; no API key needed to browse)
+**Live demo:** https://footnote-jurat.vercel.app (ten pre-computed reports, always on)
+· **Live app:** https://footnote.streamlit.app (analyze any ticker)
+
+![Footnote demo](docs/demo.gif)
 
 **The guarantee: the language model never produces a number.** Every figure in a
 Footnote report comes from a fact ledger that Python builds from SEC XBRL data. The
