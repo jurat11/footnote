@@ -23,6 +23,27 @@ def load_companyfacts(ticker: str) -> dict:
     return json.loads((FIXTURES / f"{ticker}_companyfacts.json").read_text())
 
 
+def offline_ledger(ticker: str, years: int = 5):
+    """Build a full Ledger from a committed fixture, with no network access."""
+    from footnote.facts import build_facts
+    from footnote.models import Company, Ledger
+    from footnote.ratios import build_ratios
+
+    meta = load_index()[ticker]
+    company = Company(ticker=ticker, cik=meta["cik"], name=meta["name"])
+    cf = load_companyfacts(ticker)
+    fb = build_facts(company, cf, years=years)
+    ratios = build_ratios(fb.facts, fb.fiscal_years, reports_gross_margin=fb.reports_gross_margin)
+    return Ledger(
+        company=company,
+        years=fb.fiscal_years,
+        facts=fb.facts,
+        ratios=ratios,
+        missing=fb.missing,
+        reports_gross_margin=fb.reports_gross_margin,
+    )
+
+
 def mkfact(concept: str, year: int, value: float, unit: str = "USD"):
     """Build a minimal Fact for ratio unit tests."""
     from footnote.models import Fact
