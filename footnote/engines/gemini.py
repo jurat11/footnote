@@ -15,10 +15,15 @@ from .base import SYSTEM_PROMPT, Engine, ReportRequest
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
-_MIN_INTERVAL = float(os.environ.get("GEMINI_MIN_INTERVAL", "7.0"))
-_MAX_ATTEMPTS = int(os.environ.get("GEMINI_MAX_ATTEMPTS", "6"))
+_MIN_INTERVAL = float(os.environ.get("GEMINI_MIN_INTERVAL", "2.0"))
+_MAX_ATTEMPTS = int(os.environ.get("GEMINI_MAX_ATTEMPTS", "4"))
+_BUDGET = float(os.environ.get("GEMINI_BUDGET_SECONDS", "45"))
 _rate_lock = threading.Lock()
 _last_call = [0.0]
+
+
+class GeminiQuotaError(RuntimeError):
+    """Raised when the Gemini free-tier quota is exhausted, so the app fails fast."""
 
 
 def _pace() -> None:
@@ -80,7 +85,8 @@ class GeminiEngine(Engine):
         }
         if use_tools:
             body["tools"] = _tools()
-        backoff = 5.0
+        backoff = 3.0
+        deadline = time.monotonic() + _BUDGET
         for _ in range(_MAX_ATTEMPTS):
             _pace()
             resp = self.client.post(
@@ -89,13 +95,20 @@ class GeminiEngine(Engine):
                 json=body,
             )
             if resp.status_code in (429, 503):
-                time.sleep(_retry_delay(resp.text, backoff))
-                backoff = min(backoff * 2, 90.0)
+                delay = _retry_delay(resp.text, backoff)
+                if time.monotonic() + delay > deadline:
+                    raise GeminiQuotaError(
+                        "Gemini free-tier quota is exhausted right now. Switch the engine to "
+                        "'template' (instant), or wait for the quota to reset."
+                    )
+                time.sleep(delay)
+                backoff = min(backoff * 2, 30.0)
                 continue
             resp.raise_for_status()
             return resp.json()
-        resp.raise_for_status()
-        return resp.json()
+        raise GeminiQuotaError(
+            "Gemini did not respond within budget (free-tier throttling). Use the 'template' engine."
+        )
 
     def _run(self, ctx: ToolContext, contents: list[dict]) -> str:
         for _ in range(config.MAX_TOOL_CALLS + 1):
