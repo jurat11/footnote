@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install project
+        run: uv pip install --system -e '.[dev]'
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Tests
+        run: pytest
+
+      - name: Verifier tests (the guarantee)
+        run: pytest tests/test_verify.py tests/test_render.py tests/test_engine_template.py -q
